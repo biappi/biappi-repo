@@ -1,0 +1,394 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		3F8530B20E1AC7FD006E678A /* FCController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8530B10E1AC7FD006E678A /* FCController.m */; };
+		3F8530E30E1AD4E0006E678A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8530E20E1AD4E0006E678A /* QuartzCore.framework */; };
+		3F8530ED0E1AD78C006E678A /* bg.qtz in Resources */ = {isa = PBXBuildFile; fileRef = 3F8530EC0E1AD78C006E678A /* bg.qtz */; };
+		3F8530F00E1AD88A006E678A /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8530EF0E1AD88A006E678A /* Quartz.framework */; };
+		3F8530F30E1AD8CE006E678A /* PubSub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8530F20E1AD8CE006E678A /* PubSub.framework */; };
+		3F8531120E1ADAD9006E678A /* FCBezeledBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F85310F0E1ADAD9006E678A /* FCBezeledBox.m */; };
+		3F8531130E1ADAD9006E678A /* PSEntryAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8531110E1ADAD9006E678A /* PSEntryAdditions.m */; };
+		3F85311F0E1ADBFF006E678A /* FCMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F85311E0E1ADBFF006E678A /* FCMainLayer.m */; };
+		3F8531470E1ADF32006E678A /* FCEntryBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8531460E1ADF32006E678A /* FCEntryBox.m */; };
+		3FF3AD710E1C8A3C0061FD2D /* AppleRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF3AD650E1C8A3C0061FD2D /* AppleRemote.m */; };
+		3FF3AD720E1C8A3D0061FD2D /* KeyspanFrontRowControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF3AD670E1C8A3C0061FD2D /* KeyspanFrontRowControl.m */; };
+		3FF3AD730E1C8A3D0061FD2D /* GlobalKeyboardDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF3AD690E1C8A3C0061FD2D /* GlobalKeyboardDevice.m */; };
+		3FF3AD740E1C8A3D0061FD2D /* RemoteControlContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF3AD6B0E1C8A3C0061FD2D /* RemoteControlContainer.m */; };
+		3FF3AD750E1C8A3D0061FD2D /* RemoteControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF3AD6E0E1C8A3C0061FD2D /* RemoteControl.m */; };
+		3FF3AD760E1C8A3D0061FD2D /* HIDRemoteControlDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF3AD700E1C8A3C0061FD2D /* HIDRemoteControlDevice.m */; };
+		3FF3AD7A0E1C8A930061FD2D /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF3AD790E1C8A930061FD2D /* IOKit.framework */; };
+		3FF3AD7D0E1C8AAA0061FD2D /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF3AD7C0E1C8AAA0061FD2D /* Carbon.framework */; };
+		3FF3AE210E1C97220061FD2D /* fc.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3FF3AE200E1C97220061FD2D /* fc.icns */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32CA4F630368D1EE00C91783 /* Feed Couch_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Feed Couch_Prefix.pch"; sourceTree = "<group>"; };
+		3F8530B00E1AC7FD006E678A /* FCController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCController.h; sourceTree = "<group>"; };
+		3F8530B10E1AC7FD006E678A /* FCController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCController.m; sourceTree = "<group>"; };
+		3F8530E20E1AD4E0006E678A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
+		3F8530EC0E1AD78C006E678A /* bg.qtz */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = bg.qtz; sourceTree = "<group>"; };
+		3F8530EF0E1AD88A006E678A /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
+		3F8530F20E1AD8CE006E678A /* PubSub.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PubSub.framework; path = /System/Library/Frameworks/PubSub.framework; sourceTree = "<absolute>"; };
+		3F85310E0E1ADAD9006E678A /* FCBezeledBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCBezeledBox.h; sourceTree = "<group>"; };
+		3F85310F0E1ADAD9006E678A /* FCBezeledBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCBezeledBox.m; sourceTree = "<group>"; };
+		3F8531100E1ADAD9006E678A /* PSEntryAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSEntryAdditions.h; sourceTree = "<group>"; };
+		3F8531110E1ADAD9006E678A /* PSEntryAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSEntryAdditions.m; sourceTree = "<group>"; };
+		3F85311D0E1ADBFF006E678A /* FCMainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCMainLayer.h; sourceTree = "<group>"; };
+		3F85311E0E1ADBFF006E678A /* FCMainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCMainLayer.m; sourceTree = "<group>"; };
+		3F8531450E1ADF32006E678A /* FCEntryBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCEntryBox.h; sourceTree = "<group>"; };
+		3F8531460E1ADF32006E678A /* FCEntryBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCEntryBox.m; sourceTree = "<group>"; };
+		3FF3AD640E1C8A3C0061FD2D /* AppleRemote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleRemote.h; sourceTree = "<group>"; };
+		3FF3AD650E1C8A3C0061FD2D /* AppleRemote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppleRemote.m; sourceTree = "<group>"; };
+		3FF3AD660E1C8A3C0061FD2D /* KeyspanFrontRowControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyspanFrontRowControl.h; sourceTree = "<group>"; };
+		3FF3AD670E1C8A3C0061FD2D /* KeyspanFrontRowControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyspanFrontRowControl.m; sourceTree = "<group>"; };
+		3FF3AD680E1C8A3C0061FD2D /* GlobalKeyboardDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalKeyboardDevice.h; sourceTree = "<group>"; };
+		3FF3AD690E1C8A3C0061FD2D /* GlobalKeyboardDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalKeyboardDevice.m; sourceTree = "<group>"; };
+		3FF3AD6A0E1C8A3C0061FD2D /* RemoteControlContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteControlContainer.h; sourceTree = "<group>"; };
+		3FF3AD6B0E1C8A3C0061FD2D /* RemoteControlContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteControlContainer.m; sourceTree = "<group>"; };
+		3FF3AD6D0E1C8A3C0061FD2D /* RemoteControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteControl.h; sourceTree = "<group>"; };
+		3FF3AD6E0E1C8A3C0061FD2D /* RemoteControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteControl.m; sourceTree = "<group>"; };
+		3FF3AD6F0E1C8A3C0061FD2D /* HIDRemoteControlDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIDRemoteControlDevice.h; sourceTree = "<group>"; };
+		3FF3AD700E1C8A3C0061FD2D /* HIDRemoteControlDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HIDRemoteControlDevice.m; sourceTree = "<group>"; };
+		3FF3AD790E1C8A930061FD2D /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
+		3FF3AD7C0E1C8AAA0061FD2D /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		3FF3AE200E1C97220061FD2D /* fc.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = fc.icns; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* Feed Couch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Feed Couch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				3F8530E30E1AD4E0006E678A /* QuartzCore.framework in Frameworks */,
+				3F8530F00E1AD88A006E678A /* Quartz.framework in Frameworks */,
+				3F8530F30E1AD8CE006E678A /* PubSub.framework in Frameworks */,
+				3FF3AD7A0E1C8A930061FD2D /* IOKit.framework in Frameworks */,
+				3FF3AD7D0E1C8AAA0061FD2D /* Carbon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3FF3AD620E1C8A3C0061FD2D /* Remote Support */,
+				3F85310E0E1ADAD9006E678A /* FCBezeledBox.h */,
+				3F85310F0E1ADAD9006E678A /* FCBezeledBox.m */,
+				3F8531100E1ADAD9006E678A /* PSEntryAdditions.h */,
+				3F8531110E1ADAD9006E678A /* PSEntryAdditions.m */,
+				3F8530B00E1AC7FD006E678A /* FCController.h */,
+				3F8530B10E1AC7FD006E678A /* FCController.m */,
+				3F85311D0E1ADBFF006E678A /* FCMainLayer.h */,
+				3F85311E0E1ADBFF006E678A /* FCMainLayer.m */,
+				3F8531450E1ADF32006E678A /* FCEntryBox.h */,
+				3F8531460E1ADF32006E678A /* FCEntryBox.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3FF3AD7C0E1C8AAA0061FD2D /* Carbon.framework */,
+				3FF3AD790E1C8A930061FD2D /* IOKit.framework */,
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* Feed Couch.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Feed Couch */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = "Feed Couch";
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				29B97316FDCFA39411CA2CEA /* main.m */,
+				32CA4F630368D1EE00C91783 /* Feed Couch_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3FF3AE200E1C97220061FD2D /* fc.icns */,
+				3F8530EC0E1AD78C006E678A /* bg.qtz */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F8530F20E1AD8CE006E678A /* PubSub.framework */,
+				3F8530EF0E1AD88A006E678A /* Quartz.framework */,
+				3F8530E20E1AD4E0006E678A /* QuartzCore.framework */,
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3FF3AD620E1C8A3C0061FD2D /* Remote Support */ = {
+			isa = PBXGroup;
+			children = (
+				3FF3AD6C0E1C8A3C0061FD2D /* Base Classes */,
+				3FF3AD630E1C8A3C0061FD2D /* Devices */,
+			);
+			name = "Remote Support";
+			sourceTree = "<group>";
+		};
+		3FF3AD630E1C8A3C0061FD2D /* Devices */ = {
+			isa = PBXGroup;
+			children = (
+				3FF3AD640E1C8A3C0061FD2D /* AppleRemote.h */,
+				3FF3AD650E1C8A3C0061FD2D /* AppleRemote.m */,
+				3FF3AD660E1C8A3C0061FD2D /* KeyspanFrontRowControl.h */,
+				3FF3AD670E1C8A3C0061FD2D /* KeyspanFrontRowControl.m */,
+				3FF3AD680E1C8A3C0061FD2D /* GlobalKeyboardDevice.h */,
+				3FF3AD690E1C8A3C0061FD2D /* GlobalKeyboardDevice.m */,
+				3FF3AD6A0E1C8A3C0061FD2D /* RemoteControlContainer.h */,
+				3FF3AD6B0E1C8A3C0061FD2D /* RemoteControlContainer.m */,
+			);
+			name = Devices;
+			sourceTree = "<group>";
+		};
+		3FF3AD6C0E1C8A3C0061FD2D /* Base Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3FF3AD6D0E1C8A3C0061FD2D /* RemoteControl.h */,
+				3FF3AD6E0E1C8A3C0061FD2D /* RemoteControl.m */,
+				3FF3AD6F0E1C8A3C0061FD2D /* HIDRemoteControlDevice.h */,
+				3FF3AD700E1C8A3C0061FD2D /* HIDRemoteControlDevice.m */,
+			);
+			name = "Base Classes";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* Feed Couch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Feed Couch" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Feed Couch";
+			productInstallPath = "$(HOME)/Applications";
+			productName = "Feed Couch";
+			productReference = 8D1107320486CEB800E47090 /* Feed Couch.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Feed Couch" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Feed Couch */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* Feed Couch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				3F8530ED0E1AD78C006E678A /* bg.qtz in Resources */,
+				3FF3AE210E1C97220061FD2D /* fc.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				3F8530B20E1AC7FD006E678A /* FCController.m in Sources */,
+				3F8531120E1ADAD9006E678A /* FCBezeledBox.m in Sources */,
+				3F8531130E1ADAD9006E678A /* PSEntryAdditions.m in Sources */,
+				3F85311F0E1ADBFF006E678A /* FCMainLayer.m in Sources */,
+				3F8531470E1ADF32006E678A /* FCEntryBox.m in Sources */,
+				3FF3AD710E1C8A3C0061FD2D /* AppleRemote.m in Sources */,
+				3FF3AD720E1C8A3D0061FD2D /* KeyspanFrontRowControl.m in Sources */,
+				3FF3AD730E1C8A3D0061FD2D /* GlobalKeyboardDevice.m in Sources */,
+				3FF3AD740E1C8A3D0061FD2D /* RemoteControlContainer.m in Sources */,
+				3FF3AD750E1C8A3D0061FD2D /* RemoteControl.m in Sources */,
+				3FF3AD760E1C8A3D0061FD2D /* HIDRemoteControlDevice.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1DDD58140DA1D0A300B32029 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DDD58150DA1D0A300B32029 /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Feed Couch_Prefix.pch";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = "Feed Couch";
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Feed Couch_Prefix.pch";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = "Feed Couch";
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Feed Couch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Feed Couch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Feed Couch' target in the 'Feed Couch' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
