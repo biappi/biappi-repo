@@ -100,7 +100,7 @@
 	{
 		[frameStack removeLastObject];
 		
-		[[frameStack lastObject] setObject:data forKey:@"returnValue"];
+		[[frameStack lastObject] setObject:((data == nil) ? [NSString string] : data) forKey:@"returnValue"];
 		
 		[data release];
 		data = nil;

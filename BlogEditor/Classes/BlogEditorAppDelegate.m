@@ -11,6 +11,7 @@
 #import "RequestStrings.h"
 #import "BlogUpdaterConnectionDelegate.h"
 #import "ConnectionDelegate.h"
+#import "StringEscaping.h"
 
 @implementation BlogEditorAppDelegate
 
@@ -48,6 +49,7 @@
 {
 	[blogs addObject:[NSDictionary dictionaryWithObjectsAndKeys:endpoint, @"endpoint", anID, @"id", name, @"name", anUsername, @"username", aPass, @"password", nil]];
 	[[NSUserDefaults standardUserDefaults] setObject:blogs forKey:@"blogs"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)removeBlogWithIndex:(int)idx;
@@ -96,7 +98,9 @@
 	NSString * _user = [[blogs objectAtIndex:blogIndex] objectForKey:@"username"];
 	NSString * _pass = [[blogs objectAtIndex:blogIndex] objectForKey:@"password"];
 	
-	NSString * request = [NSString stringWithFormat:newPost, _id, _user, _pass, theDescription, aTitle, nil];
+	NSString * temp = AutoreleasedCloneForXML(theDescription, YES);
+	
+	NSString * request = [NSString stringWithFormat:newPost, _id, _user, _pass, temp, aTitle, nil];
 	NSLog(request);
 	NSURL * url = [NSURL URLWithString:[[blogs objectAtIndex:blogIndex] objectForKey:@"endpoint"]];
 	

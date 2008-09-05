@@ -25,6 +25,7 @@
 		3F6678200E665E5200B684DF /* XMLRPCParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F66781F0E665E5200B684DF /* XMLRPCParser.m */; };
 		3F6678E00E6664A700B684DF /* ViewPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6678DF0E6664A700B684DF /* ViewPost.m */; };
 		3F6678E30E66670600B684DF /* RequestStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6678E20E66670600B684DF /* RequestStrings.m */; };
+		3F70ED5E0E6FE0A1001C6106 /* StringEscaping.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F70ED5D0E6FE0A1001C6106 /* StringEscaping.m */; };
 		3FC853560E6A839F00BD9841 /* AddPostMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC853550E6A839F00BD9841 /* AddPostMenuController.m */; };
 		3FD277350E6C23D9004DC8D0 /* AddPostContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD277340E6C23D9004DC8D0 /* AddPostContentController.m */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,8 @@
 		3F6678DE0E6664A700B684DF /* ViewPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPost.h; sourceTree = "<group>"; };
 		3F6678DF0E6664A700B684DF /* ViewPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPost.m; sourceTree = "<group>"; };
 		3F6678E20E66670600B684DF /* RequestStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestStrings.m; sourceTree = "<group>"; };
+		3F70ED5C0E6FE0A1001C6106 /* StringEscaping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringEscaping.h; sourceTree = "<group>"; };
+		3F70ED5D0E6FE0A1001C6106 /* StringEscaping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringEscaping.m; sourceTree = "<group>"; };
 		3FC853540E6A839F00BD9841 /* AddPostMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPostMenuController.h; sourceTree = "<group>"; };
 		3FC853550E6A839F00BD9841 /* AddPostMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPostMenuController.m; sourceTree = "<group>"; };
 		3FD277330E6C23D9004DC8D0 /* AddPostContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPostContentController.h; sourceTree = "<group>"; };
@@ -139,6 +142,8 @@
 				29B97316FDCFA39411CA2CEA /* main.m */,
 				3F6676F20E6643BB00B684DF /* RequestStrings.h */,
 				3F6678E20E66670600B684DF /* RequestStrings.m */,
+				3F70ED5C0E6FE0A1001C6106 /* StringEscaping.h */,
+				3F70ED5D0E6FE0A1001C6106 /* StringEscaping.m */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 				3F55FF6C0E66DA3300A0768A /* ConnectionDelegate.m in Sources */,
 				3FC853560E6A839F00BD9841 /* AddPostMenuController.m in Sources */,
 				3FD277350E6C23D9004DC8D0 /* AddPostContentController.m in Sources */,
+				3F70ED5E0E6FE0A1001C6106 /* StringEscaping.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

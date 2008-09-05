@@ -16,6 +16,9 @@
 	PreferencesTableCell * nameCell;
 	PreferencesTableCell * urlCell;
 	PreferencesTableCell * idCell;
+	
+	bool w_KeyDidHide;
+	bool w_KeyHide;
 }
 
 - (IBAction)save;

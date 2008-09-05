@@ -28,8 +28,11 @@
 {
 	self.title = [[[AppDelegate getValueForBlogWithIndex:blogIndex] objectAtIndex:postIndex] objectForKey:@"title"];
 	
+	NSString * baseurlstring = [[[AppDelegate getValueForBlogWithIndex:blogIndex] objectAtIndex:postIndex] objectForKey:@"permaLink"];
+	NSURL * baseurl = (baseurlstring == nil) ? nil : [NSURL URLWithString:baseurlstring];
+	
 	UIWebView * w = [[UIWebView alloc] init];
-	[w loadHTMLString:[NSString stringWithFormat:pageTemplate, [[[AppDelegate getValueForBlogWithIndex:blogIndex] objectAtIndex:postIndex] objectForKey:@"description"]] baseURL:[NSURL URLWithString:[[[AppDelegate getValueForBlogWithIndex:blogIndex] objectAtIndex:postIndex] objectForKey:@"permaLink"]]];
+	[w loadHTMLString:[NSString stringWithFormat:pageTemplate, [[[AppDelegate getValueForBlogWithIndex:blogIndex] objectAtIndex:postIndex] objectForKey:@"description"]] baseURL:baseurl];
 	
 	self.view = w;
 	[w release];
