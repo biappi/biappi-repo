@@ -13,32 +13,40 @@
 
 - (id)init;
 {
-	return [super initWithNibName:@"AddBlog" bundle:nil];
+	return [super initWithStyle:UITableViewStyleGrouped];
 }
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+
+	w_KeyDidHide = YES;
+	w_KeyHide = NO;
 	
 	usernameCell = [[PreferencesTableCell alloc] initWithFrame:CGRectZero reuseIdentifier:nil];
 	usernameCell.label.text = @"Username";
 	usernameCell.textField.placeholder = @"Enter Username";
+	[usernameCell.textField addTarget:self action:@selector(keyboardPleaseHide:) forControlEvents:UIControlEventEditingDidEndOnExit];
 	
 	passwordCell = [[PreferencesTableCell alloc] initWithFrame:CGRectZero reuseIdentifier:nil];
 	passwordCell.label.text = @"Password";
 	passwordCell.textField.secureTextEntry = YES;
 	passwordCell.textField.placeholder = @"Enter Password";
-
+	[passwordCell.textField addTarget:self action:@selector(keyboardPleaseHide:) forControlEvents:UIControlEventEditingDidEndOnExit];
+	
 	nameCell = [[PreferencesTableCell alloc] initWithFrame:CGRectZero reuseIdentifier:nil];
 	nameCell.label.text = @"Blog Name";
 	nameCell.textField.placeholder = @"Enter the Blog name";	
+	[nameCell.textField addTarget:self action:@selector(keyboardPleaseHide:) forControlEvents:UIControlEventEditingDidEndOnExit];
 	
 	urlCell = [[PreferencesTableCell alloc] initWithFrame:CGRectZero reuseIdentifier:nil];
 	urlCell.label.text = @"API URL";
 	urlCell.textField.placeholder = @"Enter API Endpoint URL";
-
+	[urlCell.textField addTarget:self action:@selector(keyboardPleaseHide:) forControlEvents:UIControlEventEditingDidEndOnExit];
+	
 	idCell = [[PreferencesTableCell alloc] initWithFrame:CGRectZero reuseIdentifier:nil];
 	idCell.label.text = @"Blog ID";
 	idCell.textField.placeholder = @"Enter your Blog ID";
+	[idCell.textField addTarget:self action:@selector(keyboardPleaseHide:) forControlEvents:UIControlEventEditingDidEndOnExit];
 }
 
 - (void)dealloc {
@@ -87,15 +95,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;
 {
-	switch (section)
-	{
-		case 0:
-			return @"Authorization";
-		case 1:
-			return @"Blog Configuration";
-	}
-	
-	return nil;
+	return (section == 0) ? @"Authorization" : @"Blog Configuration";
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section;
@@ -111,7 +111,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
 	if (indexPath.section == 1)
-		switch (indexPath.row) {
+		switch (indexPath.row)
+		
+	{
 			case 0: return nameCell; break;
 			case 1: return urlCell; break;
 			case 2: return idCell; break;
@@ -128,8 +130,8 @@
 {
 	[super viewWillAppear:animated];
 
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated;
@@ -139,8 +141,15 @@
 
 #pragma mark UIKeyboardWillShowNotification Callbacks
 
-- (void)keyboardWillShow:(NSNotification *)note;
+- (void)keyboardDidShow:(NSNotification *)note;
 {
+	NSLog([NSString stringWithFormat:@"Key Did Show - w: %@", (w_KeyDidHide) ? @"YES" : @"NO"]);
+	
+	if (w_KeyDidHide == NO)
+		return;
+	
+	w_KeyDidHide = NO;
+	
 	CGRect kb = [[[note userInfo] objectForKey:UIKeyboardBoundsUserInfoKey] CGRectValue];
 	CGRect frame = self.view.frame;
 	frame.size.height -= kb.size.height;
@@ -151,8 +160,18 @@
 	[UIView commitAnimations];
 }
 
-- (void)keyboardWillHide:(NSNotification *)note;
+- (void)keyboardDidHide:(NSNotification *)note;
 {
+	NSLog([NSString stringWithFormat:@"Key Did Show - w: %@", (w_KeyDidHide) ? @"YES" : @"NO"]);
+	
+	if (w_KeyDidHide == YES)
+		return;
+	
+	w_KeyDidHide = YES;
+	
+	if (w_KeyHide == NO)
+		return;
+	
 	CGRect kb = [[[note userInfo] objectForKey:UIKeyboardBoundsUserInfoKey] CGRectValue];
 	CGRect frame = self.view.frame;
 	frame.size.height += kb.size.height;
@@ -162,6 +181,12 @@
 	self.view.frame = frame;
 	[UIView commitAnimations];
 }
+
+- (void)keyboardPleaseHide:(id)sender;
+{
+	w_KeyHide = YES;
+}
+
 
 @end
 
