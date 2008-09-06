@@ -160,7 +160,6 @@
 	navigationController.view.frame = frame;
 }
 
-
 - (void)hideToolbar;
 {
 	if (toolbar.hidden == YES)
