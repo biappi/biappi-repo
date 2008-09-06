@@ -18,8 +18,11 @@
 	PreferencesTableCell * idCell;
 	
 	bool w_KeyDidHide;
-	bool w_KeyHide;
+	// bool w_KeyHide;
+	CGFloat w_KeyHeight;
 }
+
++ (AddBlogController *)addBlogController;
 
 - (IBAction)save;
 - (IBAction)cancel;

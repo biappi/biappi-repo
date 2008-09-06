@@ -9,27 +9,26 @@
 #import "RootViewController.h"
 #import "BlogEditorAppDelegate.h"
 #import "PostsListController.h"
+#import "AddBlogController.h"
 
 @implementation RootViewController
 
 - (IBAction)addBlog;
 {
-	[self.navigationController presentModalViewController:addBlogViewController animated:YES];
+	[self.navigationController presentModalViewController:[AddBlogController addBlogController] animated:YES];
 }
 
 - (void)viewDidLoad;
 {
 	self.title = @"All Blogs";
 	self.navigationItem.leftBarButtonItem = self.editButtonItem;
-	self.navigationItem.rightBarButtonItem = plusSign;
+	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addBlog)] autorelease];
 }
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
 {
 	return 1;
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
