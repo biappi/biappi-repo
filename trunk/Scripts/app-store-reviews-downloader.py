@@ -167,7 +167,7 @@ google.load("language", "1");google.load("jquery", "1");
 google.setOnLoadCallback(function() {$('.review').each(function() {var review = this;
 var a = $('<a href="#">Translate to English</a>').click(function() {$(this).empty();
 var title = $('.title', review).text();var comment = $('.comment', review).text();
-google.language.detect(title + "\n\n" + comment, function(result) {if (!result.error &&
+google.language.detect(title + "\\n\\n" + comment, function(result) {if (!result.error &&
 result.language) {google.language.translate(title, result.language, 'en', function(result) {
 if (result.translation)$('.title', review).html("<strong>Translated</strong>: " +
 result.translation);});google.language.translate(comment, result.language, 'en', function(result)
