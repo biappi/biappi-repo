@@ -136,51 +136,101 @@ def convertToHtml(applicationId):
 def ensureSanitizerXSLT():
 	if os.path.exists('apple-sanitizer.xslt') == False:
 		print 'Sanitizer stylesheet not present, creating it'
-		file('apple-sanitizer.xslt', 'w').write("""<?xml version="1.0" encoding="UTF-8" ?>
-<xsl:stylesheet version="1.0" xmlns:i="http://www.apple.com/itms/"
-xmlns:xsl="http://www.w3.org/1999/XSL/Transform"><xsl:output method="xml" indent="yes"/>
-<xsl:template match="/"><comments><xsl:for-each
-select="/i:Document/i:View[1]/i:ScrollView[1]/i:VBoxView[1]/i:View[1]/i:MatrixView[1]/i:VBoxView[1]/i:VBoxView[1]/i:VBoxView">
-<comment><title><xsl:value-of select="i:HBoxView/i:TextView/i:SetFontStyle/i:b"/></title>
-<person><xsl:value-of select="i:GotoURL/i:HBoxView/i:TextView/i:SetFontStyle/i:b"/></person>
-<comment><xsl:value-of select="i:TextView/i:SetFontStyle"/></comment></comment></xsl:for-each>
-</comments></xsl:template></xsl:stylesheet> """)
+		file('apple-sanitizer.xslt', 'w').write("""<?xml version="1.0" encoding="UTF-8"?>
+		<xsl:stylesheet xmlns:i="http://www.apple.com/itms/" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+			<xsl:output method="xml" indent="yes"/>
+			<xsl:template match="/">
+				<comments>
+					<xsl:for-each select="/i:Document/i:View[1]/i:ScrollView[1]/i:VBoxView[1]/i:View[1]/i:MatrixView[1]/i:VBoxView[1]/i:VBoxView[1]/i:VBoxView">
+						<comment>
+							<title>
+								<xsl:value-of select="i:HBoxView/i:TextView/i:SetFontStyle/i:b"/>
+							</title>
+							<person>
+								<xsl:value-of select="i:GotoURL/i:HBoxView/i:TextView/i:SetFontStyle/i:b"/>
+							</person>
+							<comment>
+								<xsl:value-of select="i:TextView/i:SetFontStyle"/>
+							</comment>
+							<rating>
+								<xsl:for-each select="i:HBoxView/i:HBoxView/i:HBoxView/i:PictureView">&#x2605;</xsl:for-each>
+							</rating>
+						</comment>
+					</xsl:for-each>
+				</comments>
+			</xsl:template>
+		</xsl:stylesheet>
+		""")
 
 
 def ensurePresentationXSLT():
 	if os.path.exists('to-html.xslt') == False:
 		print "XML to HTML stylesheet not present, creating it"
-		file('to-html.xslt', 'w').write("""<?xml version='1.0' encoding='utf-8'?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-<xsl:output method="html" version="1.0" encoding="utf-8" indent="no"/>
-<xsl:template match="/"> <html> <head> <title>Comments in iTunes Application Store</title>
-<style> {font-family: Futura;text-transform: uppercase;}body {font-family: sans-serif;}.store
-{background: #eeeeee;min-height: 100px;margin-left: 200px;margin-right:20px;position:relative;
-margin-bottom: 20px;padding:20px;padding-top:5px;pading-bottom:5px;} .country {display:block;width:
-150px;position: absolute;left: -160px;font-family: Futura; text-align:right;} .countryLabel
-{display:block;font-size: smaller;color: #555555;}.countryName {display:block;text-transform:
-uppercase;} li{margin-bottom: 20px;} .title {font-family: Futura;text-transform:uppercase;
-display:block;} .person {font-family: Futura;font-size:smaller;display:block;margin-bottom:10px;}
-.comment {font-family:Serif;font-style: Italic;} .toEnglish a {color: #555;font-size: 0.8em;}
-</style><script type="text/javascript" src="http://www.google.com/jsapi"/><script><![CDATA[
-google.load("language", "1");google.load("jquery", "1");
-google.setOnLoadCallback(function() {$('.review').each(function() {var review = this;
-var a = $('<a href="#">Translate to English</a>').click(function() {$(this).empty();
-var title = $('.title', review).text();var comment = $('.comment', review).text();
-google.language.detect(title + "\\n\\n" + comment, function(result) {if (!result.error &&
-result.language) {google.language.translate(title, result.language, 'en', function(result) {
-if (result.translation)$('.title', review).html("<strong>Translated</strong>: " +
-result.translation);});google.language.translate(comment, result.language, 'en', function(result)
-{if (result.translation)$('.comment', review).html("<strong>Translated</strong>: " +
-result.translation);});}});return false;});$('.toEnglish', this).append(a);});});]]></script>
-</head><body><h1>Comments in iTunes Application Store</h1><xsl:for-each select="/stores/*">
-<div class="store"><span class="country"><span class="countryLabel">country: </span>
-<span class="countryName"><xsl:value-of select="@store"/></span></span><ol><xsl:for-each
-select="comment"><li class="review"><span class="title"><xsl:value-of select="title"/></span>
-<span class="person"><xsl:value-of select="person"/></span><span class="comment"><xsl:value-of
-select="comment"/></span> <span class="toEnglish"></span></li></xsl:for-each></ol></div>
-</xsl:for-each></body></html></xsl:template></xsl:stylesheet>
-""")
+		file('to-html.xslt', 'w').write("""<?xml version="1.0" encoding="utf-8"?>
+		<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+			<xsl:output method="html" version="1.0" encoding="utf-8" indent="no"/>
+			<xsl:template match="/">
+				<html>
+					<head>
+						<title>Comments in iTunes Application Store</title>
+						<style> {font-family: Futura;text-transform: uppercase;}body {font-family: sans-serif;}.store
+		{background: #eeeeee;min-height: 100px;margin-left: 200px;margin-right:20px;position:relative;
+		margin-bottom: 20px;padding:20px;padding-top:5px;pading-bottom:5px;} .country {display:block;width:
+		150px;position: absolute;left: -160px;font-family: Futura; text-align:right;} .countryLabel
+		{display:block;font-size: smaller;color: #555555;}.countryName {display:block;text-transform:
+		uppercase;} li{margin-bottom: 20px;} .title {font-family: Futura;text-transform:uppercase;
+		display:block;} .person {font-family: Futura;font-size:smaller;display:block;margin-bottom:10px;}
+		.comment {font-family:Serif;font-style: Italic;} .toEnglish a {color: #555;font-size: 0.8em;}
+		</style>
+						<script type="text/javascript" src="http://www.google.com/jsapi"/>
+						<script><![CDATA[
+		google.load("language", "1");google.load("jquery", "1");
+		google.setOnLoadCallback(function() {$('.review').each(function() {var review = this;
+		var a = $('<a href="#">Translate to English</a>').click(function() {$(this).empty();
+		var title = $('.title', review).text();var comment = $('.comment', review).text();
+		google.language.detect(title + " " + comment, function(result) {if (!result.error &&
+		result.language) {google.language.translate(title, result.language, 'en', function(result) {
+		if (result.translation)$('.title', review).html("<strong>Translated</strong>: " +
+		result.translation);});google.language.translate(comment, result.language, 'en', function(result)
+		{if (result.translation)$('.comment', review).html("<strong>Translated</strong>: " +
+		result.translation);});}});return false;});$('.toEnglish', this).append(a);});});]]></script>
+					</head>
+					<body>
+						<h1>Comments in iTunes Application Store</h1>
+						<xsl:for-each select="/stores/*">
+							<div class="store">
+								<span class="country">
+									<span class="countryLabel">country: </span>
+									<span class="countryName">
+										<xsl:value-of select="@store"/>
+									</span>
+								</span>
+								<ol>
+									<xsl:for-each select="comment">
+										<li class="review">
+											<span class="title">
+												<xsl:value-of select="title"/>
+											</span>
+											<span class="rating">
+												<xsl:value-of select="rating"/>
+											</span>
+											<span class="person">
+												<xsl:value-of select="person"/>
+											</span>
+											<span class="comment">
+												<xsl:value-of select="comment"/>
+											</span>
+											<span class="toEnglish"/>
+										</li>
+									</xsl:for-each>
+								</ol>
+							</div>
+						</xsl:for-each>
+					</body>
+				</html>
+			</xsl:template>
+		</xsl:stylesheet>
+		""")
 
 if __name__ == '__main__':
 	if len(sys.argv) == 1:
