@@ -20,7 +20,9 @@
 #include "scaler.h"
 #include "systemstub.h"
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+#import "GameView.h"
 
 struct SystemStub_SDL : SystemStub {
 	enum {
@@ -41,6 +43,13 @@ struct SystemStub_SDL : SystemStub {
 	//SDL_Rect _blitRects[MAX_BLIT_RECTS];
 	uint16 _numBlitRects;
 
+	//--
+	
+	CGImageRef   cgImage;
+	GameView   * mainView;
+	
+	//--
+	
 	virtual ~SystemStub_SDL() {}
 	virtual void init(const char *title, uint16 w, uint16 h);
 	virtual void destroy();
@@ -78,6 +87,8 @@ void SystemStub_SDL::init(const char *title, uint16 w, uint16 h) {
 	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK);
 	SDL_ShowCursor(SDL_DISABLE);
 	SDL_WM_SetCaption(title, NULL);
+	*/
+	
 	memset(&_pi, 0, sizeof(_pi));
 	_screenW = w;
 	_screenH = h;
@@ -91,12 +102,32 @@ void SystemStub_SDL::init(const char *title, uint16 w, uint16 h) {
 	_fullscreen = false;
 	_scaler = 2;
 	memset(_pal, 0, sizeof(_pal));
-	prepareGfxMode();
-	_joystick = NULL;
-	if (SDL_NumJoysticks() > 0) {
-		_joystick = SDL_JoystickOpen(0);
-	}
-	*/
+
+	CGDataProviderRef dataProvider = CGDataProviderCreateWithData (nil, _offscreen, size_offscreen, nil);
+	CGColorSpaceRef   colorSpace   = CGColorSpaceCreateDeviceRGB  ();
+	
+	cgImage = CGImageCreate(w + 2,
+							h + 2,
+							5,
+							16,
+							(w + 2) * 2,
+							colorSpace,
+							kCGImageAlphaNoneSkipFirst,
+							dataProvider,
+							nil,
+							NO,
+							kCGRenderingIntentDefault);
+		
+	//CGImageRelease(cgImage);
+	
+	CGColorSpaceRelease(colorSpace);
+	CGDataProviderRelease(dataProvider);
+	
+	UIWindow * window = [[[UIApplication sharedApplication] delegate] window];
+	
+	mainView = [[GameView alloc] initWithFrame:window.bounds];
+	[mainView setImage:cgImage];
+	[window addSubview:mainView];
 }
 
 void SystemStub_SDL::destroy() {
@@ -110,15 +141,15 @@ void SystemStub_SDL::destroy() {
 }
 
 void SystemStub_SDL::setPalette(const uint8 *pal, uint16 n) {
-	/*
+	
 	assert(n <= 256);
 	for (int i = 0; i < n; ++i) {
 		uint8 r = pal[i * 3 + 0];
 		uint8 g = pal[i * 3 + 1];
 		uint8 b = pal[i * 3 + 2];
 		//_pal[i] = SDL_MapRGB(_screen->format, r, g, b);
+		_pal[i] = (r << 16) | (g << 8) | (b);
 	}
-	 */
 }
 
 void SystemStub_SDL::setPaletteEntry(uint8 i, const Color *c) {
@@ -128,13 +159,22 @@ void SystemStub_SDL::setPaletteEntry(uint8 i, const Color *c) {
 	uint8 b = (c->b << 2) | (c->b & 3);
 	//_pal[i] = SDL_MapRGB(_screen->format, r, g, b);
 	 */
+	
+	_pal[i] = (c->r << 16) | (c->g << 8) | (c->b);
 }
 
 void SystemStub_SDL::getPaletteEntry(uint8 i, Color *c) {
-	//SDL_GetRGB(_pal[i], _screen->format, &c->r, &c->g, &c->b);
+	c->r = (_pal[i] >> 16) & 0xF;
+	c->g = (_pal[i] >>  8) & 0xF;
+	c->b = (_pal[i] >>  0) & 0xF;
+	
+	/*
+	SDL_GetRGB(_pal[i], _screen->format, &c->r, &c->g, &c->b);
+	
 	c->r >>= 2;
 	c->g >>= 2;
 	c->b >>= 2;
+	*/
 }
 
 void SystemStub_SDL::setOverscanColor(uint8 i) {
@@ -142,7 +182,8 @@ void SystemStub_SDL::setOverscanColor(uint8 i) {
 }
 
 void SystemStub_SDL::copyRect(int16 x, int16 y, uint16 w, uint16 h, const uint8 *buf, uint32 pitch) {
-	if (_numBlitRects >= MAX_BLIT_RECTS) {
+	//if (_numBlitRects >= MAX_BLIT_RECTS) {
+	if (0) {
 		warning("SystemStub_SDL::copyRect() Too many blit rects, you may experience graphical glitches");
 	} else {
 		// extend the dirty region by 1 pixel for scalers accessing 'outer' pixels
@@ -164,6 +205,42 @@ void SystemStub_SDL::copyRect(int16 x, int16 y, uint16 w, uint16 h, const uint8 
 			h = _screenH - y;
 		}
 
+		struct SRect {
+			int x;
+			int y;
+			int w;
+			int h;
+		};
+		
+		struct SRect br;
+
+		br.x = _pi.mirrorMode ? _screenW - (x + w) : x;
+		br.y = y;
+		br.w = w;
+		br.h = h;
+		
+		uint16 *p = (uint16 *)_offscreen + (br.y + 1) * _screenW + (br.x + 1);
+		buf += y * pitch + x;
+		
+		if (_pi.mirrorMode) {
+			while (h--) {
+				for (int i = 0; i < w; ++i) {
+					p[i] = _pal[buf[w - 1 - i]];
+				}
+				p += _screenW;
+				buf += pitch;
+			}
+		} else {
+			while (h--) {
+				for (int i = 0; i < w; ++i) {
+					p[i] = _pal[buf[i]];
+				}
+				p += _screenW;
+				buf += pitch;
+			}
+		}
+		
+		
 		/*
 		SDL_Rect *br = &_blitRects[_numBlitRects];
 
@@ -201,6 +278,15 @@ void SystemStub_SDL::copyRect(int16 x, int16 y, uint16 w, uint16 h, const uint8 
 }
 
 void SystemStub_SDL::updateScreen(uint8 shakeOffset) {
+	[mainView setNeedsDisplay];
+	
+	static int i = 100;
+	
+	if (--i == 0)
+	{
+		NSLog(@"Chee");
+		[UIImagePNGRepresentation([UIImage imageWithCGImage:cgImage]) writeToFile:@"/tmp/pippo.png" atomically:NO];
+	}
 	/*
 	const int mul = _scalers[_scaler].factor;
 	if (shakeOffset == 0) {
