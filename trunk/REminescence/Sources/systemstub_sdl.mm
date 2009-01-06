@@ -106,11 +106,13 @@ void SystemStub_SDL::init(const char *title, uint16 w, uint16 h) {
 	CGDataProviderRef dataProvider = CGDataProviderCreateWithData (nil, _offscreen, size_offscreen, nil);
 	CGColorSpaceRef   colorSpace   = CGColorSpaceCreateDeviceRGB  ();
 	
-	cgImage = CGImageCreate(w + 2,
-							h + 2,
+	//CGImageCreate(<#size_t width#>, <#size_t height#>, <#size_t bitsPerComponent#>, <#size_t bitsPerPixel#>, <#size_t bytesPerRow#>, <#CGColorSpaceRef space#>, <#CGBitmapInfo bitmapInfo#>, <#CGDataProviderRef provider#>, <#const CGFloat [] decode#>, <#_Bool shouldInterpolate#>, <#CGColorRenderingIntent intent#>)
+	
+	cgImage = CGImageCreate(w,
+							h,
 							5,
 							16,
-							(w + 2) * 2,
+							(w ) * 2,
 							colorSpace,
 							kCGImageAlphaNoneSkipFirst,
 							dataProvider,
@@ -282,11 +284,6 @@ void SystemStub_SDL::updateScreen(uint8 shakeOffset) {
 	
 	static int i = 100;
 	
-	if (--i == 0)
-	{
-		NSLog(@"Chee");
-		[UIImagePNGRepresentation([UIImage imageWithCGImage:cgImage]) writeToFile:@"/tmp/pippo.png" atomically:NO];
-	}
 	/*
 	const int mul = _scalers[_scaler].factor;
 	if (shakeOffset == 0) {
