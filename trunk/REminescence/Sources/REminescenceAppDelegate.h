@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "game.h"
+#import "systemstub.h"
 
 @interface REminescenceAppDelegate : NSObject <UIApplicationDelegate>
 {
     UIWindow * window;
+	SystemStub * stub;
 }
 
 @property (nonatomic, retain) UIWindow * window;

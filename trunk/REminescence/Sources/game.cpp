@@ -40,7 +40,8 @@ void Game::run() {
 	_res.load_TEXT();
 	_res.load("FB_TXT", Resource::OT_FNT);
 
-#ifndef BYPASS_PROTECTION
+#if 0
+//#ifndef BYPASS_PROTECTION
 	while (!handleProtectionScreen());
 	if (_stub->_pi.quit) {
 		return;
