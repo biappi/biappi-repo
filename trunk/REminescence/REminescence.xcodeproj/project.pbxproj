@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15920DDF0F152932003FE1A1 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 15920DDE0F152932003FE1A1 /* Icon.png */; };
 		15D0591D0F14B20F006991DF /* REminescenceDPadView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15D0591C0F14B20F006991DF /* REminescenceDPadView.mm */; };
 		15D059920F14B99B006991DF /* REminescenceButtonView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15D059910F14B99B006991DF /* REminescenceButtonView.mm */; };
 		15D059980F14BC01006991DF /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D059970F14BC01006991DF /* MainWindow.xib */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15920DDE0F152932003FE1A1 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		15D058870F14A9B0006991DF /* L0Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = L0Common.h; sourceTree = "<group>"; };
 		15D0591B0F14B20F006991DF /* REminescenceDPadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REminescenceDPadView.h; sourceTree = "<group>"; };
 		15D0591C0F14B20F006991DF /* REminescenceDPadView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = REminescenceDPadView.mm; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				15920DDE0F152932003FE1A1 /* Icon.png */,
 				3FCAF4380F13EC6E00FF5789 /* data */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				15D059970F14BC01006991DF /* MainWindow.xib */,
@@ -260,6 +263,7 @@
 			files = (
 				3FCAF5240F13EC6F00FF5789 /* data in Resources */,
 				15D059980F14BC01006991DF /* MainWindow.xib in Resources */,
+				15920DDF0F152932003FE1A1 /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
