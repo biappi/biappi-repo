@@ -128,7 +128,7 @@ void SystemStub_iPhoneOS::init(const char *title, uint16 w, uint16 h) {
 	
 	UIWindow * window = [(REminescenceAppDelegate*)[[UIApplication sharedApplication] delegate] window];
 	
-	mainView = [[GameView alloc] initWithFrame:window.bounds];
+	mainView = [[GameView alloc] initWithFrame:CGRectMake(0, 0, w, h)];
 	[mainView setImage:cgImage];
 	[window addSubview:mainView];
 }
@@ -544,7 +544,6 @@ void SystemStub_iPhoneOS::processEvents() {
 
 void SystemStub_iPhoneOS::sleep(uint32 duration) {
 	// SDL_Delay(duration);
-	L0Log(@"Would sleep for %d", duration);
 	::usleep(duration * 1000);
 }
 

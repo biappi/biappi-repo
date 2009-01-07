@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     NSAutoreleasePool * pool;
 	
 	pool        = [[NSAutoreleasePool alloc] init];
-    returnValue = UIApplicationMain(argc, argv, nil, @"REminescenceAppDelegate");
+    returnValue = UIApplicationMain(argc, argv, nil, nil);
     [pool release];
 	
     return returnValue;

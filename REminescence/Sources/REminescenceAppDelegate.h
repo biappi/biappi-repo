@@ -7,15 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "game.h"
 #import "systemstub.h"
 
+@class REminescenceDPadView, REminescenceButtonView;
+
 @interface REminescenceAppDelegate : NSObject <UIApplicationDelegate>
 {
-    UIWindow * window;
-	SystemStub * stub;
+    IBOutlet UIWindow* window;
+	SystemStub* stub;
+	
+	IBOutlet REminescenceDPadView* dpad;
+	IBOutlet REminescenceButtonView* spaceButton;
+	IBOutlet REminescenceButtonView* escapeButton;	
 }
 
 @property (nonatomic, retain) UIWindow * window;
+
+@property(readonly) SystemStub* systemStub;
+
+- (void) setEnterPressed:(BOOL) enter;
+- (void) setEscapePressed:(BOOL) enter;
+- (void) setSpacePressed:(BOOL) enter;
 
 @end

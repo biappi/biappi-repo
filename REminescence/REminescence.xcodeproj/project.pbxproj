@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15D0591D0F14B20F006991DF /* REminescenceDPadView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15D0591C0F14B20F006991DF /* REminescenceDPadView.mm */; };
+		15D059920F14B99B006991DF /* REminescenceButtonView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15D059910F14B99B006991DF /* REminescenceButtonView.mm */; };
+		15D059980F14BC01006991DF /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D059970F14BC01006991DF /* MainWindow.xib */; };
 		1D3623260D0F684500981E51 /* REminescenceAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* REminescenceAppDelegate.mm */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -38,6 +41,11 @@
 
 /* Begin PBXFileReference section */
 		15D058870F14A9B0006991DF /* L0Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = L0Common.h; sourceTree = "<group>"; };
+		15D0591B0F14B20F006991DF /* REminescenceDPadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REminescenceDPadView.h; sourceTree = "<group>"; };
+		15D0591C0F14B20F006991DF /* REminescenceDPadView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = REminescenceDPadView.mm; sourceTree = "<group>"; };
+		15D059900F14B99B006991DF /* REminescenceButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REminescenceButtonView.h; sourceTree = "<group>"; };
+		15D059910F14B99B006991DF /* REminescenceButtonView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = REminescenceButtonView.mm; sourceTree = "<group>"; };
+		15D059970F14BC01006991DF /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* REminescenceAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REminescenceAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* REminescenceAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = REminescenceAppDelegate.mm; sourceTree = "<group>"; };
@@ -148,6 +156,10 @@
 				3FAAE7BF0F13BE8B00574E57 /* video.h */,
 				3FAAE7C00F13BE8B00574E57 /* video.cpp */,
 				3FAAE7C10F13BE8B00574E57 /* util.h */,
+				15D0591B0F14B20F006991DF /* REminescenceDPadView.h */,
+				15D0591C0F14B20F006991DF /* REminescenceDPadView.mm */,
+				15D059900F14B99B006991DF /* REminescenceButtonView.h */,
+				15D059910F14B99B006991DF /* REminescenceButtonView.mm */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -177,6 +189,7 @@
 			children = (
 				3FCAF4380F13EC6E00FF5789 /* data */,
 				8D1107310486CEB800E47090 /* Info.plist */,
+				15D059970F14BC01006991DF /* MainWindow.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -244,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FCAF5240F13EC6F00FF5789 /* data in Resources */,
+				15D059980F14BC01006991DF /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +290,8 @@
 				3FAAE7D60F13BE8B00574E57 /* file.cpp in Sources */,
 				3FAAE7D70F13BE8B00574E57 /* video.cpp in Sources */,
 				3F38396D0F140C5E00925C4F /* GameView.m in Sources */,
+				15D0591D0F14B20F006991DF /* REminescenceDPadView.mm in Sources */,
+				15D059920F14B99B006991DF /* REminescenceButtonView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
