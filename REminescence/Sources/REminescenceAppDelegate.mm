@@ -19,9 +19,11 @@
 	
 	const char * dataPath = [[[NSBundle mainBundle] pathForResource:@"data" ofType:nil] fileSystemRepresentation];
 	
-	Game *g = new Game(stub, dataPath, "-", VER_EN);
-	g->run();
-	delete g;
+	while (true) {
+		Game *g = new Game(stub, dataPath, "-", VER_EN);
+		g->run();
+		delete g;
+	}
 }
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application;
