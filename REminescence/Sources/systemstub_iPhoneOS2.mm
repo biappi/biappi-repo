@@ -68,12 +68,28 @@ void SystemStub_iPhoneOS::destroy()
 
 void SystemStub_iPhoneOS::setPalette(const uint8 * pal, uint16 n)
 {
-	memcpy(palette, pal, n * 3);
+	// memcpy(palette, pal, n * 3);
+	NSCParameterAssert(n <= 256);
+	int i; for (i = 0; i < n; i++) {
+		palette[i].r = pal[i * 3];
+		palette[i].g = pal[i * 3 + 1];
+		palette[i].b = pal[i * 3 + 2];
+		
+		palette[i].r = (palette[i].r << 2) | (palette[i].r & 3);
+		palette[i].g = (palette[i].g << 2) | (palette[i].g & 3);
+		palette[i].b = (palette[i].b << 2) | (palette[i].b & 3);
+		
+		
+		L0Log(@"Color R = %d G = %d B = %d assigned to palette pos %d", palette[i].r, palette[i].g, palette[i].b, i);
+	}
 }
 
 void SystemStub_iPhoneOS::setPaletteEntry(uint8 i, const Color *c)
 {
-	palette[i] = *c;
+	palette[i].r = (c->r << 2) | (c->r & 3);
+	palette[i].g = (c->g << 2) | (c->g & 3);
+	palette[i].b = (c->b << 2) | (c->b & 3);
+	L0Log(@"Color R = %d G = %d B = %d assigned to palette pos %d", palette[i].r, palette[i].g, palette[i].b, i);
 }
 
 void SystemStub_iPhoneOS::getPaletteEntry(uint8 i, Color *c)
@@ -83,7 +99,15 @@ void SystemStub_iPhoneOS::getPaletteEntry(uint8 i, Color *c)
 
 void SystemStub_iPhoneOS::setOverscanColor(uint8 i)
 {
-	NO_IMP();
+	Color c = palette[i];
+	L0Log(@"Setting overscan color to %d (color R = %d, G = %d, B = %d)", i, c.r, c.g, c.b);
+	
+	NSAutoreleasePool* pool = [NSAutoreleasePool new];
+	
+	UIWindow* window = [(REminescenceAppDelegate*)[[UIApplication sharedApplication] delegate] window];
+	window.backgroundColor = [UIColor colorWithRed:c.r green:c.g blue:c.b alpha:0];
+	
+	[pool release];
 }
 
 #pragma mark Drawing
