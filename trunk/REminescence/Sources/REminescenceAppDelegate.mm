@@ -19,8 +19,12 @@
 	
 	const char * dataPath = [[[NSBundle mainBundle] pathForResource:@"data" ofType:nil] fileSystemRepresentation];
 	
+	NSArray* docsDirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSAssert( [docsDirs count] > 0, @"At least one Documents directory exists" );
+	NSString* docsDir = [docsDirs objectAtIndex:0];
+	
 	while (true) {
-		Game *g = new Game(stub, dataPath, "-", VER_EN);
+		Game *g = new Game(stub, dataPath, [docsDir fileSystemRepresentation], VER_EN);
 		g->run();
 		delete g;
 	}
