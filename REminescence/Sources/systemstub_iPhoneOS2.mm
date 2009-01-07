@@ -133,7 +133,10 @@ uint32 SystemStub_iPhoneOS::getTimeStamp()
 	if (start == nil)
 		start = [NSDate new];
 	
-	return (uint32) [[NSDate date] timeIntervalSinceDate:start] * 1000;
+	NSDate* now = [NSDate new];
+	uint32 ticks = [now timeIntervalSinceDate:start] * 1000;
+	[now release];
+	return ticks;
 }
 
 #pragma mark Audio
