@@ -20,7 +20,11 @@
 	
 	IBOutlet REminescenceDPadView* dpad;
 	IBOutlet REminescenceButtonView* spaceButton;
-	IBOutlet REminescenceButtonView* escapeButton;	
+	IBOutlet REminescenceButtonView* escapeButton;
+	IBOutlet REminescenceButtonView* enterButton;
+	IBOutlet REminescenceButtonView* shiftButton;
+	IBOutlet REminescenceButtonView* backspaceButton;
+	
 }
 
 @property (nonatomic, retain) UIWindow * window;
@@ -28,7 +32,9 @@
 @property(readonly) SystemStub* systemStub;
 
 - (void) setEnterPressed:(BOOL) enter;
-- (void) setEscapePressed:(BOOL) enter;
-- (void) setSpacePressed:(BOOL) enter;
+- (void) setEscapePressed:(BOOL) escape;
+- (void) setSpacePressed:(BOOL) space;
+- (void) setShiftPressed:(BOOL) shift;
+- (void) setBackspacePressed:(BOOL) backspace;
 
 @end

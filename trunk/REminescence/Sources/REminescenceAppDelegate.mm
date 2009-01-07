@@ -34,6 +34,10 @@
 	stub = SystemStub_iPhoneOS_create();
 	spaceButton.delegateKey = @"spacePressed";
 	escapeButton.delegateKey = @"escapePressed";
+	enterButton.delegateKey = @"enterPressed";
+	shiftButton.delegateKey = @"shiftPressed";
+	backspaceButton.delegateKey = @"backspacePressed";
+	
     [window makeKeyAndVisible];
 		
 	[self performSelector:@selector(startItAll:) withObject:nil afterDelay:0];
@@ -62,5 +66,15 @@
 - (void) setSpacePressed:(BOOL) space {
 	stub->_pi.space = space;
 }
+
+- (void) setShiftPressed:(BOOL) shift {
+	stub->_pi.shift = shift;
+}
+
+- (void) setBackspacePressed:(BOOL) backspace {
+	stub->_pi.backspace = backspace;
+}
+
+
 
 @end
