@@ -15,21 +15,18 @@
 
 @interface REminescenceAppDelegate : NSObject <UIApplicationDelegate>
 {
-    IBOutlet UIWindow* window;
-	SystemStub* stub;
-	
+	SystemStub * stub;
+
 	IBOutlet REminescenceDPadView* dpad;
 	IBOutlet REminescenceButtonView* spaceButton;
 	IBOutlet REminescenceButtonView* escapeButton;
 	IBOutlet REminescenceButtonView* enterButton;
 	IBOutlet REminescenceButtonView* shiftButton;
 	IBOutlet REminescenceButtonView* backspaceButton;
-	
 }
 
-@property (nonatomic, retain) UIWindow * window;
-
-@property(readonly) SystemStub* systemStub;
+@property(nonatomic, retain) UIWindow   * window;
+@property(readonly)          SystemStub * systemStub;
 
 - (void) setEnterPressed:(BOOL) enter;
 - (void) setEscapePressed:(BOOL) escape;
