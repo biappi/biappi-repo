@@ -14,7 +14,7 @@
 		3F38396D0F140C5E00925C4F /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F38396C0F140C5E00925C4F /* GameView.m */; };
 		3FAAE7C20F13BE8B00574E57 /* util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FAAE79B0F13BE8B00574E57 /* util.cpp */; };
 		3FAAE7C30F13BE8B00574E57 /* unpack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FAAE79D0F13BE8B00574E57 /* unpack.cpp */; };
-		3FAAE7C40F13BE8B00574E57 /* systemstub_sdl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3FAAE79E0F13BE8B00574E57 /* systemstub_sdl.mm */; };
+		3FAAE7C40F13BE8B00574E57 /* systemstub_iPhoneOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3FAAE79E0F13BE8B00574E57 /* systemstub_iPhoneOS.mm */; };
 		3FAAE7C50F13BE8B00574E57 /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FAAE79F0F13BE8B00574E57 /* game.cpp */; };
 		3FAAE7C60F13BE8B00574E57 /* collision.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FAAE7A00F13BE8B00574E57 /* collision.cpp */; };
 		3FAAE7C70F13BE8B00574E57 /* scaler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FAAE7A20F13BE8B00574E57 /* scaler.cpp */; };
@@ -37,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15D058870F14A9B0006991DF /* L0Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = L0Common.h; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* REminescenceAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REminescenceAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* REminescenceAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = REminescenceAppDelegate.mm; sourceTree = "<group>"; };
@@ -48,7 +49,7 @@
 		3FAAE79B0F13BE8B00574E57 /* util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = util.cpp; sourceTree = "<group>"; };
 		3FAAE79C0F13BE8B00574E57 /* unpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unpack.h; sourceTree = "<group>"; };
 		3FAAE79D0F13BE8B00574E57 /* unpack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = unpack.cpp; sourceTree = "<group>"; };
-		3FAAE79E0F13BE8B00574E57 /* systemstub_sdl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = systemstub_sdl.mm; sourceTree = "<group>"; };
+		3FAAE79E0F13BE8B00574E57 /* systemstub_iPhoneOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = systemstub_iPhoneOS.mm; sourceTree = "<group>"; };
 		3FAAE79F0F13BE8B00574E57 /* game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = game.cpp; sourceTree = "<group>"; };
 		3FAAE7A00F13BE8B00574E57 /* collision.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = collision.cpp; sourceTree = "<group>"; };
 		3FAAE7A10F13BE8B00574E57 /* scaler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scaler.h; sourceTree = "<group>"; };
@@ -114,7 +115,7 @@
 				3FAAE79B0F13BE8B00574E57 /* util.cpp */,
 				3FAAE79C0F13BE8B00574E57 /* unpack.h */,
 				3FAAE79D0F13BE8B00574E57 /* unpack.cpp */,
-				3FAAE79E0F13BE8B00574E57 /* systemstub_sdl.mm */,
+				3FAAE79E0F13BE8B00574E57 /* systemstub_iPhoneOS.mm */,
 				3FAAE79F0F13BE8B00574E57 /* game.cpp */,
 				3FAAE7A00F13BE8B00574E57 /* collision.cpp */,
 				3FAAE7A10F13BE8B00574E57 /* scaler.h */,
@@ -195,6 +196,7 @@
 			children = (
 				3FEE147F0EFECE5100BFD74D /* main.m */,
 				3FEE14800EFECE5100BFD74D /* REminescence_Prefix.pch */,
+				15D058870F14A9B0006991DF /* L0Common.h */,
 			);
 			name = Boilerplate;
 			sourceTree = "<group>";
@@ -256,7 +258,7 @@
 				3FEE14810EFECE5100BFD74D /* main.m in Sources */,
 				3FAAE7C20F13BE8B00574E57 /* util.cpp in Sources */,
 				3FAAE7C30F13BE8B00574E57 /* unpack.cpp in Sources */,
-				3FAAE7C40F13BE8B00574E57 /* systemstub_sdl.mm in Sources */,
+				3FAAE7C40F13BE8B00574E57 /* systemstub_iPhoneOS.mm in Sources */,
 				3FAAE7C50F13BE8B00574E57 /* game.cpp in Sources */,
 				3FAAE7C60F13BE8B00574E57 /* collision.cpp in Sources */,
 				3FAAE7C70F13BE8B00574E57 /* scaler.cpp in Sources */,
@@ -289,6 +291,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Sources/REminescence_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				INFOPLIST_FILE = Resources/Info.plist;
 				PRODUCT_NAME = REminescence;
 			};
