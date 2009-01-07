@@ -75,9 +75,9 @@ void SystemStub_iPhoneOS::setPalette(const uint8 * pal, uint16 n)
 		palette[i].g = pal[i * 3 + 1];
 		palette[i].b = pal[i * 3 + 2];
 		
-		palette[i].r = (palette[i].r << 2) | (palette[i].r & 3);
+		palette[i].r = (palette[i].b << 2) | (palette[i].b & 3);
 		palette[i].g = (palette[i].g << 2) | (palette[i].g & 3);
-		palette[i].b = (palette[i].b << 2) | (palette[i].b & 3);
+		palette[i].b = (palette[i].r << 2) | (palette[i].r & 3);
 		
 		
 		L0Log(@"Color R = %d G = %d B = %d assigned to palette pos %d", palette[i].r, palette[i].g, palette[i].b, i);
@@ -86,9 +86,9 @@ void SystemStub_iPhoneOS::setPalette(const uint8 * pal, uint16 n)
 
 void SystemStub_iPhoneOS::setPaletteEntry(uint8 i, const Color *c)
 {
-	palette[i].r = (c->r << 2) | (c->r & 3);
+	palette[i].r = (c->b << 2) | (c->b & 3);
 	palette[i].g = (c->g << 2) | (c->g & 3);
-	palette[i].b = (c->b << 2) | (c->b & 3);
+	palette[i].b = (c->r << 2) | (c->r & 3);
 	L0Log(@"Color R = %d G = %d B = %d assigned to palette pos %d", palette[i].r, palette[i].g, palette[i].b, i);
 }
 
