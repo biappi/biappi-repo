@@ -59,7 +59,6 @@
 		3FAAE79B0F13BE8B00574E57 /* util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = util.cpp; sourceTree = "<group>"; };
 		3FAAE79C0F13BE8B00574E57 /* unpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unpack.h; sourceTree = "<group>"; };
 		3FAAE79D0F13BE8B00574E57 /* unpack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = unpack.cpp; sourceTree = "<group>"; };
-		3FAAE79E0F13BE8B00574E57 /* systemstub_iPhoneOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = systemstub_iPhoneOS.mm; sourceTree = "<group>"; };
 		3FAAE79F0F13BE8B00574E57 /* game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = game.cpp; sourceTree = "<group>"; };
 		3FAAE7A00F13BE8B00574E57 /* collision.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = collision.cpp; sourceTree = "<group>"; };
 		3FAAE7A10F13BE8B00574E57 /* scaler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scaler.h; sourceTree = "<group>"; };
@@ -125,7 +124,6 @@
 				3FAAE79B0F13BE8B00574E57 /* util.cpp */,
 				3FAAE79C0F13BE8B00574E57 /* unpack.h */,
 				3FAAE79D0F13BE8B00574E57 /* unpack.cpp */,
-				3FAAE79E0F13BE8B00574E57 /* systemstub_iPhoneOS.mm */,
 				3FAAE79F0F13BE8B00574E57 /* game.cpp */,
 				3FAAE7A00F13BE8B00574E57 /* collision.cpp */,
 				3FAAE7A10F13BE8B00574E57 /* scaler.h */,
