@@ -59,19 +59,7 @@
 						</object>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 					</object>
-<<<<<<< .mine
-					<object class="IBUIView" id="1021555941">
-						<reference key="NSNextResponder" ref="380026005"/>
-						<int key="NSvFlags">1298</int>
-						<string key="NSFrame">{{171, 408}, {129, 52}}</string>
-						<reference key="NSSuperview" ref="380026005"/>
-						<reference key="IBUIBackgroundColor" ref="817763955"/>
-						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
-					</object>
-					<object class="IBUIView" id="88523917">
-=======
 					<object class="IBUIView" id="83691227">
->>>>>>> .r29
 						<reference key="NSNextResponder" ref="380026005"/>
 						<int key="NSvFlags">1298</int>
 						<string key="NSFrame">{{171, 378}, {129, 36}}</string>
@@ -176,16 +164,6 @@
 					</object>
 					<int key="connectionID">25</int>
 				</object>
-<<<<<<< .mine
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">enterButton</string>
-						<reference key="source" ref="987256611"/>
-						<reference key="destination" ref="1021555941"/>
-					</object>
-					<int key="connectionID">16</int>
-				</object>
-=======
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">shiftButton</string>
@@ -202,7 +180,6 @@
 					</object>
 					<int key="connectionID">27</int>
 				</object>
->>>>>>> .r29
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -226,7 +203,6 @@
 							<reference ref="754780578"/>
 							<reference ref="268210496"/>
 							<reference ref="83691227"/>
-							<reference ref="1021555941"/>
 						</object>
 						<reference key="parent" ref="957960031"/>
 					</object>
@@ -262,13 +238,6 @@
 						<reference key="object" ref="858742188"/>
 						<reference key="parent" ref="380026005"/>
 					</object>
-<<<<<<< .mine
-					<object class="IBObjectRecord">
-						<int key="objectID">15</int>
-						<reference key="object" ref="1021555941"/>
-						<reference key="parent" ref="380026005"/>
-					</object>
-=======
 					<object class="IBObjectRecord">
 						<int key="objectID">15</int>
 						<reference key="object" ref="1010760445"/>
@@ -284,7 +253,6 @@
 						<reference key="object" ref="268210496"/>
 						<reference key="parent" ref="380026005"/>
 					</object>
->>>>>>> .r29
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -295,17 +263,12 @@
 					<string>-2.CustomClassName</string>
 					<string>13.CustomClassName</string>
 					<string>13.IBPluginDependency</string>
-<<<<<<< .mine
-					<string>15.CustomClassName</string>
-					<string>15.IBPluginDependency</string>
-=======
 					<string>15.CustomClassName</string>
 					<string>15.IBPluginDependency</string>
 					<string>16.CustomClassName</string>
 					<string>16.IBPluginDependency</string>
 					<string>17.CustomClassName</string>
 					<string>17.IBPluginDependency</string>
->>>>>>> .r29
 					<string>2.IBAttributePlaceholdersKey</string>
 					<string>2.IBEditorWindowLastContentRect</string>
 					<string>2.IBPluginDependency</string>
@@ -323,17 +286,12 @@
 					<string>UIResponder</string>
 					<string>REminescenceButtonView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-<<<<<<< .mine
-					<string>REminescenceButtonView</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-=======
 					<string>REminescenceButtonView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>REminescenceButtonView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>REminescenceButtonView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
->>>>>>> .r29
 					<object class="NSMutableDictionary">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
@@ -374,11 +332,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-<<<<<<< .mine
-			<int key="maxID">16</int>
-=======
 			<int key="maxID">27</int>
->>>>>>> .r29
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -404,12 +358,8 @@
 							<string>REminescenceDPadView</string>
 							<string>REminescenceButtonView</string>
 							<string>REminescenceButtonView</string>
-<<<<<<< .mine
-							<string>REminescenceButtonView</string>
-=======
 							<string>REminescenceButtonView</string>
 							<string>REminescenceButtonView</string>
->>>>>>> .r29
 							<string>UIWindow</string>
 						</object>
 					</object>
