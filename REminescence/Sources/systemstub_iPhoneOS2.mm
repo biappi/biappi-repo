@@ -31,7 +31,8 @@ void SystemStub_iPhoneOS::init(const char *title, uint16 w, uint16 h)
 	printf ("-> bitmap size: %d\n", bitmap_size);
 	
 	bitmap = (uint32 *) malloc(bitmap_size);
-	
+
+	memset(&_pi,    0, sizeof(_pi));
 	memset(bitmap,  0, bitmap_size);
 	memset(palette, 0, sizeof(palette));
 	
@@ -127,7 +128,7 @@ void SystemStub_iPhoneOS::sleep(uint32 duration)
 
 uint32 SystemStub_iPhoneOS::getTimeStamp()
 {
-	static NSDate * start;
+	static NSDate * start = nil;
 	
 	if (start == nil)
 		start = [NSDate date];
