@@ -15,8 +15,8 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
-		3F38396D0F140C5E00925C4F /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F38396C0F140C5E00925C4F /* GameView.m */; };
-		3F67B1E60F14C5AC0021FB76 /* systemstub_iPhoneOS2.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3F67B1E50F14C5AC0021FB76 /* systemstub_iPhoneOS2.mm */; };
+		3F38396D0F140C5E00925C4F /* REminescenceGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F38396C0F140C5E00925C4F /* REminescenceGameView.m */; };
+		3F67B1E60F14C5AC0021FB76 /* systemstub_iPhoneOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3F67B1E50F14C5AC0021FB76 /* systemstub_iPhoneOS.mm */; };
 		3FAAE7C20F13BE8B00574E57 /* util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FAAE79B0F13BE8B00574E57 /* util.cpp */; };
 		3FAAE7C30F13BE8B00574E57 /* unpack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FAAE79D0F13BE8B00574E57 /* unpack.cpp */; };
 		3FAAE7C50F13BE8B00574E57 /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FAAE79F0F13BE8B00574E57 /* game.cpp */; };
@@ -54,10 +54,10 @@
 		1D6058910D05DD3D006BFB54 /* REminescence.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = REminescence.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		3F38396B0F140C5E00925C4F /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
-		3F38396C0F140C5E00925C4F /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
-		3F67B1E40F14C5AC0021FB76 /* systemstub_iPhoneOS2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = systemstub_iPhoneOS2.h; sourceTree = "<group>"; };
-		3F67B1E50F14C5AC0021FB76 /* systemstub_iPhoneOS2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = systemstub_iPhoneOS2.mm; sourceTree = "<group>"; };
+		3F38396B0F140C5E00925C4F /* REminescenceGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REminescenceGameView.h; sourceTree = "<group>"; };
+		3F38396C0F140C5E00925C4F /* REminescenceGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REminescenceGameView.m; sourceTree = "<group>"; };
+		3F67B1E40F14C5AC0021FB76 /* systemstub_iPhoneOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = systemstub_iPhoneOS.h; sourceTree = "<group>"; };
+		3F67B1E50F14C5AC0021FB76 /* systemstub_iPhoneOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = systemstub_iPhoneOS.mm; sourceTree = "<group>"; };
 		3FAAE79B0F13BE8B00574E57 /* util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = util.cpp; sourceTree = "<group>"; };
 		3FAAE79C0F13BE8B00574E57 /* unpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unpack.h; sourceTree = "<group>"; };
 		3FAAE79D0F13BE8B00574E57 /* unpack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = unpack.cpp; sourceTree = "<group>"; };
@@ -119,8 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				3FEE14880EFECE5A00BFD74D /* Boilerplate */,
-				3F38396B0F140C5E00925C4F /* GameView.h */,
-				3F38396C0F140C5E00925C4F /* GameView.m */,
+				3F38396B0F140C5E00925C4F /* REminescenceGameView.h */,
+				3F38396C0F140C5E00925C4F /* REminescenceGameView.m */,
 				1D3623240D0F684500981E51 /* REminescenceAppDelegate.h */,
 				1D3623250D0F684500981E51 /* REminescenceAppDelegate.mm */,
 				3FAAE79B0F13BE8B00574E57 /* util.cpp */,
@@ -162,8 +162,8 @@
 				15D0591C0F14B20F006991DF /* REminescenceDPadView.mm */,
 				15D059900F14B99B006991DF /* REminescenceButtonView.h */,
 				15D059910F14B99B006991DF /* REminescenceButtonView.mm */,
-				3F67B1E40F14C5AC0021FB76 /* systemstub_iPhoneOS2.h */,
-				3F67B1E50F14C5AC0021FB76 /* systemstub_iPhoneOS2.mm */,
+				3F67B1E40F14C5AC0021FB76 /* systemstub_iPhoneOS.h */,
+				3F67B1E50F14C5AC0021FB76 /* systemstub_iPhoneOS.mm */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -294,10 +294,10 @@
 				3FAAE7D50F13BE8B00574E57 /* graphics.cpp in Sources */,
 				3FAAE7D60F13BE8B00574E57 /* file.cpp in Sources */,
 				3FAAE7D70F13BE8B00574E57 /* video.cpp in Sources */,
-				3F38396D0F140C5E00925C4F /* GameView.m in Sources */,
+				3F38396D0F140C5E00925C4F /* REminescenceGameView.m in Sources */,
 				15D0591D0F14B20F006991DF /* REminescenceDPadView.mm in Sources */,
 				15D059920F14B99B006991DF /* REminescenceButtonView.mm in Sources */,
-				3F67B1E60F14C5AC0021FB76 /* systemstub_iPhoneOS2.mm in Sources */,
+				3F67B1E60F14C5AC0021FB76 /* systemstub_iPhoneOS.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

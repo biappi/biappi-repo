@@ -12,7 +12,7 @@
 
 @implementation REminescenceAppDelegate
 
-@synthesize window;
+@synthesize window, gameView;
 
 - (void)startItAll:(id)unused;
 {
@@ -40,6 +40,8 @@
 	shiftButton.delegateKey = @"shiftPressed";
 	backspaceButton.delegateKey = @"backspacePressed";
 	
+	[UIApplication sharedApplication].statusBarHidden = YES;
+	window.frame = [UIScreen mainScreen].bounds;
 	[window makeKeyAndVisible];
 		
 	[self performSelector:@selector(startItAll:) withObject:nil afterDelay:0];
@@ -49,6 +51,7 @@
 {
 	delete stub;
     [window release];
+	[gameView release];
     [super dealloc];
 }
 

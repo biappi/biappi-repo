@@ -11,15 +11,15 @@
 
 #import <UIKit/UIKit.h>
 
-#import "GameView.h"
+#import "REminescenceGameView.h"
 #import "REminescenceAppDelegate.h"
 
 struct SystemStub_iPhoneOS : SystemStub
 {
-	CGImageRef   cgImage;
-	GameView   * mainView;
-	uint16       screenW;
-	uint16       screenH;
+	CGImageRef				 cgImage;
+	REminescenceGameView   * mainView;
+	uint16					 screenW;
+	uint16					 screenH;
 
 	Color        palette[256];
 	uint32     * bitmap;
