@@ -101,6 +101,13 @@ struct MutexStack {
 };
 
 extern SystemStub *SystemStub_SDL_create();
+
+#if defined(WIN32)
 extern SystemStub *SystemStub_Win32_create();
+#endif // Win32
+
+#if defined(TARGET_IPHONE_SIMULATOR) || defined(TARGET_OS_IPHONE)
+extern SystemStub *SystemStub_iPhoneOS_create();
+#endif // iPhone OS
 
 #endif // __SYSTEMSTUB_H__

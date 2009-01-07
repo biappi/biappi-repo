@@ -23,8 +23,9 @@
 #import <UIKit/UIKit.h>
 
 #import "GameView.h"
+#import "REminescenceAppDelegate.h"
 
-struct SystemStub_SDL : SystemStub {
+struct SystemStub_iPhoneOS : SystemStub {
 	enum {
 		MAX_BLIT_RECTS = 200,
 		SOUND_SAMPLE_RATE = 11025,
@@ -50,7 +51,7 @@ struct SystemStub_SDL : SystemStub {
 	
 	//--
 	
-	virtual ~SystemStub_SDL() {}
+	virtual ~SystemStub_iPhoneOS() {}
 	virtual void init(const char *title, uint16 w, uint16 h);
 	virtual void destroy();
 	virtual void setPalette(const uint8 *pal, uint16 n);
@@ -78,11 +79,11 @@ struct SystemStub_SDL : SystemStub {
 	//void drawRect(SDL_Rect *rect, uint8 color, uint16 *dst, uint16 dstPitch);
 };
 
-SystemStub *SystemStub_SDL_create() {
-	return new SystemStub_SDL();
+SystemStub *SystemStub_iPhoneOS_create() {
+	return new SystemStub_iPhoneOS();
 }
 
-void SystemStub_SDL::init(const char *title, uint16 w, uint16 h) {
+void SystemStub_iPhoneOS::init(const char *title, uint16 w, uint16 h) {
 	/*
 	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK);
 	SDL_ShowCursor(SDL_DISABLE);
@@ -96,7 +97,7 @@ void SystemStub_SDL::init(const char *title, uint16 w, uint16 h) {
 	int size_offscreen = (w + 2) * (h + 2) * 2;
 	_offscreen = (uint8 *)malloc(size_offscreen);
 	if (!_offscreen) {
-		error("SystemStub_SDL::init() Unable to allocate offscreen buffer");
+		error("SystemStub_iPhoneOS::init() Unable to allocate offscreen buffer");
 	}
 	memset(_offscreen, 0, size_offscreen);
 	_fullscreen = false;
@@ -125,14 +126,14 @@ void SystemStub_SDL::init(const char *title, uint16 w, uint16 h) {
 	CGColorSpaceRelease(colorSpace);
 	CGDataProviderRelease(dataProvider);
 	
-	UIWindow * window = [[[UIApplication sharedApplication] delegate] window];
+	UIWindow * window = [(REminescenceAppDelegate*)[[UIApplication sharedApplication] delegate] window];
 	
 	mainView = [[GameView alloc] initWithFrame:window.bounds];
 	[mainView setImage:cgImage];
 	[window addSubview:mainView];
 }
 
-void SystemStub_SDL::destroy() {
+void SystemStub_iPhoneOS::destroy() {
 	/*
 	cleanupGfxMode();
 	if (SDL_JoystickOpened(0)) {
@@ -142,7 +143,7 @@ void SystemStub_SDL::destroy() {
 	 */
 }
 
-void SystemStub_SDL::setPalette(const uint8 *pal, uint16 n) {
+void SystemStub_iPhoneOS::setPalette(const uint8 *pal, uint16 n) {
 	
 	assert(n <= 256);
 	for (int i = 0; i < n; ++i) {
@@ -154,7 +155,7 @@ void SystemStub_SDL::setPalette(const uint8 *pal, uint16 n) {
 	}
 }
 
-void SystemStub_SDL::setPaletteEntry(uint8 i, const Color *c) {
+void SystemStub_iPhoneOS::setPaletteEntry(uint8 i, const Color *c) {
 	/*
 	uint8 r = (c->r << 2) | (c->r & 3);
 	uint8 g = (c->g << 2) | (c->g & 3);
@@ -165,7 +166,7 @@ void SystemStub_SDL::setPaletteEntry(uint8 i, const Color *c) {
 	_pal[i] = (c->r << 16) | (c->g << 8) | (c->b);
 }
 
-void SystemStub_SDL::getPaletteEntry(uint8 i, Color *c) {
+void SystemStub_iPhoneOS::getPaletteEntry(uint8 i, Color *c) {
 	c->r = (_pal[i] >> 16) & 0xF;
 	c->g = (_pal[i] >>  8) & 0xF;
 	c->b = (_pal[i] >>  0) & 0xF;
@@ -179,14 +180,14 @@ void SystemStub_SDL::getPaletteEntry(uint8 i, Color *c) {
 	*/
 }
 
-void SystemStub_SDL::setOverscanColor(uint8 i) {
+void SystemStub_iPhoneOS::setOverscanColor(uint8 i) {
 	_overscanColor = i;
 }
 
-void SystemStub_SDL::copyRect(int16 x, int16 y, uint16 w, uint16 h, const uint8 *buf, uint32 pitch) {
+void SystemStub_iPhoneOS::copyRect(int16 x, int16 y, uint16 w, uint16 h, const uint8 *buf, uint32 pitch) {
 	//if (_numBlitRects >= MAX_BLIT_RECTS) {
 	if (0) {
-		warning("SystemStub_SDL::copyRect() Too many blit rects, you may experience graphical glitches");
+		warning("SystemStub_iPhoneOS::copyRect() Too many blit rects, you may experience graphical glitches");
 	} else {
 		// extend the dirty region by 1 pixel for scalers accessing 'outer' pixels
 		--x;
@@ -279,10 +280,8 @@ void SystemStub_SDL::copyRect(int16 x, int16 y, uint16 w, uint16 h, const uint8 
 	}
 }
 
-void SystemStub_SDL::updateScreen(uint8 shakeOffset) {
+void SystemStub_iPhoneOS::updateScreen(uint8 shakeOffset) {
 	[mainView setNeedsDisplay];
-	
-	static int i = 100;
 	
 	/*
 	const int mul = _scalers[_scaler].factor;
@@ -339,7 +338,7 @@ void SystemStub_SDL::updateScreen(uint8 shakeOffset) {
 	 */
 }
 
-void SystemStub_SDL::processEvents() {
+void SystemStub_iPhoneOS::processEvents() {
 	[[NSRunLoop currentRunLoop] runUntilDate:[NSDate distantPast]];
 	
 	/*
@@ -543,16 +542,20 @@ void SystemStub_SDL::processEvents() {
 	 */
 }
 
-void SystemStub_SDL::sleep(uint32 duration) {
+void SystemStub_iPhoneOS::sleep(uint32 duration) {
 	// SDL_Delay(duration);
+	L0Log(@"Would sleep for %d", duration);
+	::usleep(duration * 1000);
 }
 
-uint32 SystemStub_SDL::getTimeStamp() {
+uint32 SystemStub_iPhoneOS::getTimeStamp() {
 	// return SDL_GetTicks();
-	return 0;
+	// CFAbsoluteTime is in seconds, but SDL returned milliseconds,
+	// so we convert 'em here.
+	return (uint32) CFAbsoluteTimeGetCurrent() * 1000;
 }
 
-void SystemStub_SDL::startAudio(AudioCallback callback, void *param) {
+void SystemStub_iPhoneOS::startAudio(AudioCallback callback, void *param) {
 	/*
 	SDL_AudioSpec desired;
 	memset(&desired, 0, sizeof(desired));
@@ -565,54 +568,55 @@ void SystemStub_SDL::startAudio(AudioCallback callback, void *param) {
 	if (SDL_OpenAudio(&desired, NULL) == 0) {
 		SDL_PauseAudio(0);
 	} else {
-		error("SystemStub_SDL::startAudio() Unable to open sound device");
+		error("SystemStub_iPhoneOS::startAudio() Unable to open sound device");
 	}
 	 */
 }
 
-void SystemStub_SDL::stopAudio() {
+void SystemStub_iPhoneOS::stopAudio() {
 	// SDL_CloseAudio();
 }
 
-uint32 SystemStub_SDL::getOutputSampleRate() {
+uint32 SystemStub_iPhoneOS::getOutputSampleRate() {
 	return SOUND_SAMPLE_RATE;
 }
 
-void *SystemStub_SDL::createMutex() {
+void *SystemStub_iPhoneOS::createMutex() {
 //	return SDL_CreateMutex();
-	return NULL;
+	NSLock* l = [NSLock new];
+	return l;
 }
 
-void SystemStub_SDL::destroyMutex(void *mutex) {
-	// SDL_DestroyMutex((SDL_mutex *)mutex);
+void SystemStub_iPhoneOS::destroyMutex(void *mutex) {
+	[(NSLock*)mutex release];
 }
 
-void SystemStub_SDL::lockMutex(void *mutex) {
-	// SDL_mutexP((SDL_mutex *)mutex);
+void SystemStub_iPhoneOS::lockMutex(void *mutex) {
+	[(NSLock*)mutex lock];
 }
 
-void SystemStub_SDL::unlockMutex(void *mutex) {
-	// SDL_mutexV((SDL_mutex *)mutex);
+void SystemStub_iPhoneOS::unlockMutex(void *mutex) {
+	[(NSLock*)mutex unlock];
 }
 
-void SystemStub_SDL::prepareGfxMode() {
+void SystemStub_iPhoneOS::prepareGfxMode() {
 	/*
 	int w = _screenW * _scalers[_scaler].factor;
 	int h = _screenH * _scalers[_scaler].factor;
 	_screen = SDL_SetVideoMode(w, h, 16, _fullscreen ? (SDL_FULLSCREEN | SDL_HWSURFACE) : SDL_HWSURFACE);
 	if (!_screen) {
-		error("SystemStub_SDL::prepareGfxMode() Unable to allocate _screen buffer");
+		error("SystemStub_iPhoneOS::prepareGfxMode() Unable to allocate _screen buffer");
 	}
 	const SDL_PixelFormat *pf = _screen->format;
 	_sclscreen = SDL_CreateRGBSurface(SDL_SWSURFACE, w, h, 16, pf->Rmask, pf->Gmask, pf->Bmask, pf->Amask);
 	if (!_sclscreen) {
-		error("SystemStub_SDL::prepareGfxMode() Unable to allocate _sclscreen buffer");
+		error("SystemStub_iPhoneOS::prepareGfxMode() Unable to allocate _sclscreen buffer");
 	}
 	forceGfxRedraw();
 	 */
 }
 
-void SystemStub_SDL::cleanupGfxMode() {
+void SystemStub_iPhoneOS::cleanupGfxMode() {
 	/*
 	if (_offscreen) {
 		free(_offscreen);
@@ -629,7 +633,7 @@ void SystemStub_SDL::cleanupGfxMode() {
 	 */
 }
 
-void SystemStub_SDL::switchGfxMode(bool fullscreen, uint8 scaler) {
+void SystemStub_iPhoneOS::switchGfxMode(bool fullscreen, uint8 scaler) {
 /*
  SDL_Surface *prev_sclscreen = _sclscreen;
 	SDL_FreeSurface(_screen);
@@ -641,7 +645,7 @@ void SystemStub_SDL::switchGfxMode(bool fullscreen, uint8 scaler) {
  */
 }
 
-void SystemStub_SDL::flipGfx() {
+void SystemStub_iPhoneOS::flipGfx() {
 	/*
 	uint16 scanline[256];
 	assert(_screenW <= 256);
@@ -658,7 +662,7 @@ void SystemStub_SDL::flipGfx() {
 	 */
 }
 
-void SystemStub_SDL::forceGfxRedraw() {
+void SystemStub_iPhoneOS::forceGfxRedraw() {
 	/*
 	_numBlitRects = 1;
 	_blitRects[0].x = 0;
@@ -668,7 +672,7 @@ void SystemStub_SDL::forceGfxRedraw() {
 	 */
 }
 /*
-void SystemStub_SDL::drawRect(SDL_Rect *rect, uint8 color, uint16 *dst, uint16 dstPitch) {
+void SystemStub_iPhoneOS::drawRect(SDL_Rect *rect, uint8 color, uint16 *dst, uint16 dstPitch) {
 	dstPitch >>= 1;
 	int x1 = rect->x;
 	int y1 = rect->y;

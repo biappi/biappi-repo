@@ -15,7 +15,7 @@
 - (void)startItAll:(id)unused;
 {
 	
-	const char * dataPath = [[[NSBundle mainBundle] pathForResource:@"data" ofType:nil] UTF8String];
+	const char * dataPath = [[[NSBundle mainBundle] pathForResource:@"data" ofType:nil] fileSystemRepresentation];
 	
 	Game *g = new Game(stub, dataPath, "-", VER_EN);
 	g->run();
@@ -29,7 +29,7 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application;
 {
-	stub = SystemStub_SDL_create();
+	stub = SystemStub_iPhoneOS_create();
 	
 	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [window makeKeyAndVisible];

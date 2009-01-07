@@ -17,7 +17,7 @@
 
 - (void)drawRect:(CGRect)rect;
 {
-	if (imaggio == 0)
+	if (imaggio == NULL)
 		return;
 	
 	UIImage * im = [UIImage imageWithCGImage:imaggio];
