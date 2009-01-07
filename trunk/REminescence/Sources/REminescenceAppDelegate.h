@@ -17,6 +17,8 @@
 {
 	SystemStub * stub;
 
+	IBOutlet UIWindow * window;
+	
 	IBOutlet REminescenceDPadView* dpad;
 	IBOutlet REminescenceButtonView* spaceButton;
 	IBOutlet REminescenceButtonView* escapeButton;
