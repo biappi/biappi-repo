@@ -7,6 +7,8 @@
 //
 
 #import "REminescenceAppDelegate.h"
+#import "REminescenceDPadView.h"
+#import "REminescenceButtonView.h"
 
 @implementation REminescenceAppDelegate
 
@@ -30,8 +32,8 @@
 - (void)applicationDidFinishLaunching:(UIApplication *)application;
 {
 	stub = SystemStub_iPhoneOS_create();
-	
-	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	spaceButton.delegateKey = @"spacePressed";
+	escapeButton.delegateKey = @"escapePressed";
     [window makeKeyAndVisible];
 		
 	[self performSelector:@selector(startItAll:) withObject:nil afterDelay:0];
@@ -45,5 +47,20 @@
     [super dealloc];
 }
 
+- (SystemStub*) systemStub {
+	return stub;
+}
+
+- (void) setEnterPressed:(BOOL) enter {
+	stub->_pi.enter = enter;
+}
+
+- (void) setEscapePressed:(BOOL) escape {
+	stub->_pi.escape = escape;
+}
+
+- (void) setSpacePressed:(BOOL) space {
+	stub->_pi.space = space;
+}
 
 @end
