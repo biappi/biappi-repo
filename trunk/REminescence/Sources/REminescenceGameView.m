@@ -6,9 +6,9 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "GameView.h"
+#import "REminescenceGameView.h"
 
-@implementation GameView
+@implementation REminescenceGameView
 
 - (void)dealloc;
 {

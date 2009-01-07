@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GameView : UIView
+@interface REminescenceGameView : UIView
 {
 	CGImageRef imaggio;
 }

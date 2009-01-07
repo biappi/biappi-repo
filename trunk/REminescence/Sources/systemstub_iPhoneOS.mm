@@ -7,7 +7,7 @@
  *
  */
 
-#include "systemstub_iPhoneOS2.h"
+#include "systemstub_iPhoneOS.h"
 #include <mach/mach_time.h>
 
 #define NO_IMP() printf("Not Implemented: %s\n", __PRETTY_FUNCTION__)
@@ -55,7 +55,12 @@ void SystemStub_iPhoneOS::init(const char *title, uint16 w, uint16 h)
 	CGDataProviderRelease (dataProvider);
 
 	UIWindow * window = [(REminescenceAppDelegate*)[[UIApplication sharedApplication] delegate] window];
-	mainView = [[GameView alloc] initWithFrame:CGRectMake(0, 0, w, h)];
+	mainView = [(REminescenceAppDelegate*)[[UIApplication sharedApplication] delegate] gameView];
+	CGRect frame = mainView.frame;
+	frame.size = CGSizeMake(screenW, screenH);
+	frame.origin.x = mainView.superview.frame.size.width / 2 - frame.size.width / 2;
+	mainView.frame = frame;
+	
 	[mainView setImage:cgImage];
 	[window addSubview:mainView];	
 }
