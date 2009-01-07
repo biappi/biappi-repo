@@ -71,13 +71,13 @@ void SystemStub_iPhoneOS::setPalette(const uint8 * pal, uint16 n)
 	// memcpy(palette, pal, n * 3);
 	NSCParameterAssert(n <= 256);
 	int i; for (i = 0; i < n; i++) {
-		palette[i].r = pal[i * 3];
+		palette[i].b = pal[i * 3];
 		palette[i].g = pal[i * 3 + 1];
-		palette[i].b = pal[i * 3 + 2];
+		palette[i].r = pal[i * 3 + 2];
 		
-		palette[i].r = (palette[i].b << 2) | (palette[i].b & 3);
-		palette[i].g = (palette[i].g << 2) | (palette[i].g & 3);
-		palette[i].b = (palette[i].r << 2) | (palette[i].r & 3);
+//		palette[i].r = (palette[i].b << 2) | (palette[i].b & 3);
+//		palette[i].g = (palette[i].g << 2) | (palette[i].g & 3);
+//		palette[i].b = (palette[i].r << 2) | (palette[i].r & 3);
 		
 		
 		L0Log(@"Color R = %d G = %d B = %d assigned to palette pos %d", palette[i].r, palette[i].g, palette[i].b, i);
