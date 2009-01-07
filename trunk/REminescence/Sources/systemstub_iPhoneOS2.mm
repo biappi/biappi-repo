@@ -131,7 +131,7 @@ uint32 SystemStub_iPhoneOS::getTimeStamp()
 	static NSDate * start = nil;
 	
 	if (start == nil)
-		start = [NSDate date];
+		start = [NSDate new];
 	
 	return (uint32) [[NSDate date] timeIntervalSinceDate:start] * 1000;
 }
