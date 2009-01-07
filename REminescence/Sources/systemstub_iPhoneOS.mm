@@ -16,6 +16,31 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
+
+// Thanks iphonedoom
+unsigned hightable[256], lowtable[256];
+
+void gentables()
+{
+	for (int i = 0; i < 256; i++)
+	{
+		// low byte
+		int red = (int)((i & 31) * 255.f / 31.f);
+		int lowgreen = (int)(((i >> 5) & 7) * 255.f / 63.f);
+		lowtable[i] = red | (lowgreen << 8);
+		
+		// high byte
+		int highgreen = (int)(((i & 7) << 3) * 255.f / 63.f);
+		int blue = (int)((i >> 3) * 255.f / 31.f);
+		hightable[i] = (blue << 16) | (highgreen << 8);
+	}
+}
+
+unsigned convert_rgb565_to_rgb888(unsigned short rgb565)
+{
+	return hightable[rgb565 >> 8] + lowtable[rgb565 & 255];
+}
+
 // #include <SDL.h>
 #include "scaler.h"
 #include "systemstub.h"
@@ -38,7 +63,7 @@ struct SystemStub_iPhoneOS : SystemStub {
 	bool _fullscreen;
 	uint8 _scaler;
 	uint8 _overscanColor;
-	uint16 _pal[256];
+	uint32 _pal[256];
 	uint16 _screenW, _screenH;
 	//SDL_Joystick *_joystick;
 	//SDL_Rect _blitRects[MAX_BLIT_RECTS];
@@ -94,7 +119,7 @@ void SystemStub_iPhoneOS::init(const char *title, uint16 w, uint16 h) {
 	_screenW = w;
 	_screenH = h;
 	// allocate some extra bytes for the scaling routines
-	int size_offscreen = (w + 2) * (h + 2) * 2;
+	int size_offscreen = (w + 2) * (h + 2) * 3;
 	_offscreen = (uint8 *)malloc(size_offscreen);
 	if (!_offscreen) {
 		error("SystemStub_iPhoneOS::init() Unable to allocate offscreen buffer");
@@ -104,6 +129,8 @@ void SystemStub_iPhoneOS::init(const char *title, uint16 w, uint16 h) {
 	_scaler = 2;
 	memset(_pal, 0, sizeof(_pal));
 
+	gentables();
+	
 	CGDataProviderRef dataProvider = CGDataProviderCreateWithData (nil, _offscreen, size_offscreen, nil);
 	CGColorSpaceRef   colorSpace   = CGColorSpaceCreateDeviceRGB  ();
 	
@@ -111,9 +138,9 @@ void SystemStub_iPhoneOS::init(const char *title, uint16 w, uint16 h) {
 	
 	cgImage = CGImageCreate(w,
 							h,
-							5,
-							16,
-							(w ) * 2,
+							8,
+							24,
+							(w ) * 3,
 							colorSpace,
 							kCGImageAlphaNoneSkipFirst,
 							dataProvider,

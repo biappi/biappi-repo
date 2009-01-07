@@ -24,24 +24,19 @@
 	delete g;
 }
 
-- (void)puppa:(id)p;
-{
-	NSLog(@"sdf");
-}
-
 - (void)applicationDidFinishLaunching:(UIApplication *)application;
 {
 	stub = SystemStub_iPhoneOS_create();
-	spaceButton.delegateKey = @"spacePressed";
+
+	spaceButton.delegateKey  = @"spacePressed";
 	escapeButton.delegateKey = @"escapePressed";
 	enterButton.delegateKey = @"enterPressed";
 	shiftButton.delegateKey = @"shiftPressed";
 	backspaceButton.delegateKey = @"backspacePressed";
 	
-    [window makeKeyAndVisible];
+	[window makeKeyAndVisible];
 		
 	[self performSelector:@selector(startItAll:) withObject:nil afterDelay:0];
-	[self performSelector:@selector(puppa:) withObject:nil afterDelay:5];
 }
 
 - (void)dealloc;
@@ -51,19 +46,23 @@
     [super dealloc];
 }
 
-- (SystemStub*) systemStub {
+- (SystemStub*) systemStub;
+{
 	return stub;
 }
 
-- (void) setEnterPressed:(BOOL) enter {
+- (void)setEnterPressed:(BOOL)enter;
+{
 	stub->_pi.enter = enter;
 }
 
-- (void) setEscapePressed:(BOOL) escape {
+- (void)setEscapePressed:(BOOL)escape;
+{
 	stub->_pi.escape = escape;
 }
 
-- (void) setSpacePressed:(BOOL) space {
+- (void)setSpacePressed:(BOOL)space;
+{
 	stub->_pi.space = space;
 }
 
@@ -74,7 +73,5 @@
 - (void) setBackspacePressed:(BOOL) backspace {
 	stub->_pi.backspace = backspace;
 }
-
-
 
 @end
