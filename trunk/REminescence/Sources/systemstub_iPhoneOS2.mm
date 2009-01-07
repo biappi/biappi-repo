@@ -116,7 +116,9 @@ void SystemStub_iPhoneOS::updateScreen(uint8 shakeOffset)
 
 void SystemStub_iPhoneOS::processEvents()
 {
-	[[NSRunLoop currentRunLoop] runUntilDate:[NSDate distantPast]];
+	NSDate* verySoon = [[NSDate alloc] initWithTimeIntervalSinceNow:1.0/60.0];
+	[[NSRunLoop currentRunLoop] runUntilDate:verySoon];
+	[verySoon release];
 }
 
 #pragma mark Timing
