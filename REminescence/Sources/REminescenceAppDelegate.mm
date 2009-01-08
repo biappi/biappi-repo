@@ -14,6 +14,12 @@
 
 @synthesize window, gameView;
 
+- (void)applicationWillResignActive:(UIApplication *)application;
+{
+	self.systemStub->_pi.escape = true;
+	// TODO a better way to pause (hi battery!)
+}
+
 - (void)startItAll:(id)unused;
 {
 	
