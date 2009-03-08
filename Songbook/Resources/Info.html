@@ -5,52 +5,117 @@ body { font-family: Helvetica }
 <meta name = "viewport" content = "width = device-width, initial-scale = 1.0 user-scalable = no">
 
 <h1>Songbook</h1>
-<ul>
+
+<ul id="menu">
 <li><a href="#s1">What is Songbook?</a></li>
 <li><a href="#s2">How does it work?</a></li>
 <li><a href="#s3">A Shortcut</a></li>
 <li><a href="#s4">Editing a Song</a></li>
+<li><a href="#as">Auto Scrolling Feature</a></li>
 <li><a href="#s5">Donationware</a></li>
-<li><a href="#s6">This app is crap!!!</a></li>
+<li><a href="#don">Why donate?</a></li>
+<li><a href="#s6">This app has bugs!!!</a></li>
+<li><a href="#s0">Who are you?</a></li>
 </ul>
+
 <a name="s1">
 <h2>What is Songbook?</h2>
 <p>
-Songbook is an organizer of Chord Pro files, a way of storing lyrics+chords
-of a song, for iPhone.
+Songbook is an organizer of Chord Pro files, a way of storing lyrics and chords of a song, for the iPhone or iPod Touch.
 </p>
+
+<p>
+I wrote the application in my spare time in just three days.  Hopefully someone will find the App useful, and so I have decided to put it free in the Apple App Store.
+</p>
+
+<p>
+Songbook is not a polished application yet, and it will certainly not win an <a href="http://developer.apple.com/wwdc/ada/index.html">ADA</a>, but i think it is still better than some of the other applications in the App Store.
+</p>
+
+<p>
+Being a student, and Songbook being a weekend project for me, I unfortunately cannot guarantee any regular update schedule.   This is the main reason Songbook is free.
+</p>
+
+
 <a name="s2">
 <h2>How does it work?</h2>
 <p>
-The Songbook interface is really straightforward, with the buttons
-on the bottom you navigate the three main areas of the program:
+The Songbook interface is straightforward with all navigation buttons at the bottom of the screen.
 <ul>
-<li>Browse by Artist: where you navigate your personal songbook by artist</li>
-<li>Browse by Song: show all the songs in one list</li>
-<li>Add Song: this is where you can add song, either by typing a chord file via the iPhone keyboard, or by trying to parse some file over the internet</li>
+<li>Artists: shows all the artists in your Songbook.</li>
+<li>Songs:  shows all the songs in your Songbook.</li>
+<li>Add Song: Either manually enter the text and chords for a song, or importing a Chord Pro file a URL</li>
+<li>Info: shows documentation for Songbook</li>
 </ul>
 </p>
+
 <a name="s3">
 <h2>A Shortcut</h2>
-<p>If you are browsing internet and you find a chord pro file you want to add to your Songbook, you can substitute in the URL bar of Mobile Safari <code>http://</code> with <code>chordpro://</code>, this will "pass" the URL to Songbook, so you don't have to remember and rewrite it in the Add Song pane.</p>
-<p>You can even add a "bookmarklet" that will do it for you, the code is:</p>
-<p><code>
-javascript:window.location.href
-= 'chordpro' +
+
+<p>
+If you are browsing internet with an iPhone or an iPod Touch and you find a chord pro file you want to add to your Songbook, simply substitute the http:// in the URL bar of Mobile Safari with chordpro://.  This will send the URL to Songbook, so you don't have to remember and rewrite it in the “Add Song” pane.
+</p>
+
+<p>
+You can even add a bookmarklet that will do it for you.  Simple create a bookmarklet with the following javascript:
+</p>
+
+<p><pre><code>
+javascript:window.location.href =
+'chordpro' +
 window.location.href.substr(4)
-</code></p>
-<p>Just make a bookmark with this "weird text" as location in Mobile Safari, and when you'll find some song you want to add, just click the bookmarklet and Songbook will open!</p>
+</code></pre></p>
+
+<p>
+To create this bookmarklet, you must first save a bookmark from a webpage (for example from google).  Then delete the entire entry for the website URL and replace it with the javascript bookmarklet text above.  Change the name so you can remember what the bookmark is.  When navigating onto a page that is a Chord Pro file, simply click that bookmark and it will import the Chord Pro file into Songbook.
+</p>
+
+
 <a name="s4">
 <h2>Editing a Song</h2>
-<p>In the Song Edit view you can edit the raw .pro file. The format is really simple: first write down the lyrics of the song, then insert between the verses the chords surrounded by square brackets.</p>
-<p>Since an example is worth a thousand words: <code>Swing l[D]ow, sweet c[G]hario[D]t</code></p>
+
+<p>
+In the Song Edit view (accessed by the top right button while viewing a song or ‘by typing it on the iPhone’ in the ‘Add Song’ menu) it is possible to edit a raw Chord Pro file. The format is really simple: first write or edit the lyrics of the song, then insert between the verses the chords surrounded by square brackets.
+</p>
+
+<p>
+Since an example is worth a thousand words: <code>Swing l[D]ow, sweet c[G]hario[D]t</code>
+</p>
+
+<a name="as">
+<h2>Auto Scrolling Function</h2>
+
+<p>
+To access the Autoscroller function: open a song, click the menu button in the upper right-hand corner and click ‘Start Autoscroller’.  The speed is variable from 1-10
+</p>
+
 <a name="s5">
 <h2>Donationware</h2>
-<p>I've made this application in just a couple of days, and it's so simple i do not want to force anyone to pay for it. But if you want you can <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Z2D2G64ZGE68A&lc=US&item_name=Songbook&item_number=songbook&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted">make a donation
+<p>
+I have made this application in just a couple of days, and I do not want to force anyone to pay for it. But if you want you can 
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Z2D2G64ZGE68A&lc=US&item_name=Songbook&item_number=songbook&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted">make a donation
 via Paypal</a> to support the software.
 </p>
+
+<a name="don">
+<h2>Why Donate?</h2>
+<p>
+I am a student and I do not have any roadmap for this app, as you can see it as a weekend project. Donating is a way to show that you like this application, and will keep me focused on this project knowing that I have some real users out there.
+</p>
+<p>
+If this application manages to garner a couple of fans, I will consider starting to develop other useful functions. If you want to sponsor other features though, through ideas and/or donations, I will work to implement them.
+</p>
+
 <a name="s6">
-<h2>This app is crap!!</h2>
-<p>Every piece of code has bugs, it's inevitable. But we can work it out, you can contact me at <a href="mailto:antonio.w.malara@gmail.com">my email address</a> for support.</p>
+<h2>This app has bugs!!</h2>
+<p>
+Every piece of code inevitably has some bugs. But we can work it out, contact me at <a href="mailto:antonio.w.malara@gmail.com">my email address</a> to let me know about problems.
+</p>
+
+<a name="s0">
+<h2>Who are you?</h2>
+<p>
+I am Biappi a student who writes code between classes to kill time. If you're interested in my musings, <a href="http://la-fuffa.com/">there is my weblog</a>.
+</p>
 <hr>
 For updated informations, visit <a href="http://songbook.la-fuffa.com/">the Songbook website</a>
