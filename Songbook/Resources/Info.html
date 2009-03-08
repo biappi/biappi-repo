@@ -1,0 +1,56 @@
+<style>
+body { font-family: Helvetica }
+</style>
+
+<meta name = "viewport" content = "width = device-width, initial-scale = 1.0 user-scalable = no">
+
+<h1>Songbook</h1>
+<ul>
+<li><a href="#s1">What is Songbook?</a></li>
+<li><a href="#s2">How does it work?</a></li>
+<li><a href="#s3">A Shortcut</a></li>
+<li><a href="#s4">Editing a Song</a></li>
+<li><a href="#s5">Donationware</a></li>
+<li><a href="#s6">This app is crap!!!</a></li>
+</ul>
+<a name="s1">
+<h2>What is Songbook?</h2>
+<p>
+Songbook is an organizer of Chord Pro files, a way of storing lyrics+chords
+of a song, for iPhone.
+</p>
+<a name="s2">
+<h2>How does it work?</h2>
+<p>
+The Songbook interface is really straightforward, with the buttons
+on the bottom you navigate the three main areas of the program:
+<ul>
+<li>Browse by Artist: where you navigate your personal songbook by artist</li>
+<li>Browse by Song: show all the songs in one list</li>
+<li>Add Song: this is where you can add song, either by typing a chord file via the iPhone keyboard, or by trying to parse some file over the internet</li>
+</ul>
+</p>
+<a name="s3">
+<h2>A Shortcut</h2>
+<p>If you are browsing internet and you find a chord pro file you want to add to your Songbook, you can substitute in the URL bar of Mobile Safari <code>http://</code> with <code>chordpro://</code>, this will "pass" the URL to Songbook, so you don't have to remember and rewrite it in the Add Song pane.</p>
+<p>You can even add a "bookmarklet" that will do it for you, the code is:</p>
+<p><code>
+javascript:window.location.href
+= 'chordpro' +
+window.location.href.substr(4)
+</code></p>
+<p>Just make a bookmark with this "weird text" as location in Mobile Safari, and when you'll find some song you want to add, just click the bookmarklet and Songbook will open!</p>
+<a name="s4">
+<h2>Editing a Song</h2>
+<p>In the Song Edit view you can edit the raw .pro file. The format is really simple: first write down the lyrics of the song, then insert between the verses the chords surrounded by square brackets.</p>
+<p>Since an example is worth a thousand words: <code>Swing l[D]ow, sweet c[G]hario[D]t</code></p>
+<a name="s5">
+<h2>Donationware</h2>
+<p>I've made this application in just a couple of days, and it's so simple i do not want to force anyone to pay for it. But if you want you can <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Z2D2G64ZGE68A&lc=US&item_name=Songbook&item_number=songbook&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted">make a donation
+via Paypal</a> to support the software.
+</p>
+<a name="s6">
+<h2>This app is crap!!</h2>
+<p>Every piece of code has bugs, it's inevitable. But we can work it out, you can contact me at <a href="mailto:antonio.w.malara@gmail.com">my email address</a> for support.</p>
+<hr>
+For updated informations, visit <a href="http://songbook.la-fuffa.com/">the Songbook website</a>

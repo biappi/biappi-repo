@@ -1,0 +1,428 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* SongbookAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* SongbookAppDelegate.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		3F1678A70F03624C00BC1EF1 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1678A50F03624C00BC1EF1 /* RegexKitLite.m */; };
+		3F1678B40F0364D700BC1EF1 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1678B30F0364D700BC1EF1 /* libicucore.dylib */; };
+		3F5C57940F05836F001B87F6 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F5C57930F05836F001B87F6 /* Icon.png */; };
+		3F5C57B00F058AF1001B87F6 /* n.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F5C57AF0F058AF1001B87F6 /* n.png */; };
+		3F5C57CA0F058DFF001B87F6 /* a.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F5C57C90F058DFF001B87F6 /* a.png */; };
+		3F5C57CF0F058EA5001B87F6 /* p.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F5C57CE0F058EA5001B87F6 /* p.png */; };
+		3F686F110F01D27E00FDA08A /* PRODownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F686F100F01D27E00FDA08A /* PRODownloader.m */; };
+		3F6870220F02012500FDA08A /* SongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6870210F02012500FDA08A /* SongViewController.m */; };
+		3F68706F0F02077400FDA08A /* PRO2HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F68706E0F02077400FDA08A /* PRO2HTML.m */; };
+		3F762A020F03D7C800CF9874 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F762A010F03D7C800CF9874 /* Entitlements.plist */; };
+		3FAAC2590F065172007B7A95 /* Info.html in Resources */ = {isa = PBXBuildFile; fileRef = 3FAAC2580F065172007B7A95 /* Info.html */; };
+		3FAAC25D0F0651BE007B7A95 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAAC25C0F0651BE007B7A95 /* InfoViewController.m */; };
+		3FAAC2940F065888007B7A95 /* i.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FAAC2930F065888007B7A95 /* i.png */; };
+		3FAAC2DD0F066A53007B7A95 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FAAC2DC0F066A53007B7A95 /* Default.png */; };
+		3FAB13ED0EFF40F60026DED5 /* EditSongController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAB13EC0EFF40F60026DED5 /* EditSongController.m */; };
+		3FAB13EF0EFF41300026DED5 /* EditSong.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FAB13EE0EFF41300026DED5 /* EditSong.xib */; };
+		3FAB15240EFF6A470026DED5 /* SongsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAB15230EFF6A470026DED5 /* SongsListController.m */; };
+		3FC2FD490F4DC74C00C6FDB5 /* RotatingTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2FD480F4DC74C00C6FDB5 /* RotatingTabBarController.m */; };
+		3FE0041A0EFEE7E800C310A2 /* ArtistsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE004190EFEE7E800C310A2 /* ArtistsListController.m */; };
+		3FE004520EFEEFBD00C310A2 /* MainTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE004500EFEEFBD00C310A2 /* MainTabController.m */; };
+		3FE004650EFEF35D00C310A2 /* SongbookDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE004640EFEF35D00C310A2 /* SongbookDB.m */; };
+		3FE004680EFEF51300C310A2 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE004670EFEF51300C310A2 /* libsqlite3.dylib */; };
+		3FE004CF0EFF248000C310A2 /* AddSongController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE004CE0EFF248000C310A2 /* AddSongController.m */; };
+		3FEE14810EFECE5100BFD74D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE147F0EFECE5100BFD74D /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* SongbookAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongbookAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* SongbookAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongbookAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* Songbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Songbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3F1678A50F03624C00BC1EF1 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		3F1678A60F03624C00BC1EF1 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		3F1678B30F0364D700BC1EF1 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		3F5C57930F05836F001B87F6 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		3F5C57AF0F058AF1001B87F6 /* n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = n.png; sourceTree = "<group>"; };
+		3F5C57C90F058DFF001B87F6 /* a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a.png; sourceTree = "<group>"; };
+		3F5C57CE0F058EA5001B87F6 /* p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p.png; sourceTree = "<group>"; };
+		3F686F0F0F01D27E00FDA08A /* PRODownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRODownloader.h; sourceTree = "<group>"; };
+		3F686F100F01D27E00FDA08A /* PRODownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRODownloader.m; sourceTree = "<group>"; };
+		3F6870200F02012500FDA08A /* SongViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongViewController.h; sourceTree = "<group>"; };
+		3F6870210F02012500FDA08A /* SongViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongViewController.m; sourceTree = "<group>"; };
+		3F68706D0F02077400FDA08A /* PRO2HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRO2HTML.h; sourceTree = "<group>"; };
+		3F68706E0F02077400FDA08A /* PRO2HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRO2HTML.m; sourceTree = "<group>"; };
+		3F762A010F03D7C800CF9874 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		3FAAC2580F065172007B7A95 /* Info.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Info.html; sourceTree = "<group>"; };
+		3FAAC25B0F0651BE007B7A95 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		3FAAC25C0F0651BE007B7A95 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		3FAAC2930F065888007B7A95 /* i.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i.png; sourceTree = "<group>"; };
+		3FAAC2DC0F066A53007B7A95 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		3FAB13EB0EFF40F60026DED5 /* EditSongController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditSongController.h; sourceTree = "<group>"; };
+		3FAB13EC0EFF40F60026DED5 /* EditSongController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditSongController.m; sourceTree = "<group>"; };
+		3FAB13EE0EFF41300026DED5 /* EditSong.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditSong.xib; sourceTree = "<group>"; };
+		3FAB15220EFF6A470026DED5 /* SongsListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongsListController.h; sourceTree = "<group>"; };
+		3FAB15230EFF6A470026DED5 /* SongsListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongsListController.m; sourceTree = "<group>"; };
+		3FC2FD470F4DC74C00C6FDB5 /* RotatingTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotatingTabBarController.h; sourceTree = "<group>"; };
+		3FC2FD480F4DC74C00C6FDB5 /* RotatingTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotatingTabBarController.m; sourceTree = "<group>"; };
+		3FE004180EFEE7E800C310A2 /* ArtistsListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistsListController.h; sourceTree = "<group>"; };
+		3FE004190EFEE7E800C310A2 /* ArtistsListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistsListController.m; sourceTree = "<group>"; };
+		3FE004500EFEEFBD00C310A2 /* MainTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabController.m; sourceTree = "<group>"; };
+		3FE004510EFEEFBD00C310A2 /* MainTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabController.h; sourceTree = "<group>"; };
+		3FE004630EFEF35D00C310A2 /* SongbookDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongbookDB.h; sourceTree = "<group>"; };
+		3FE004640EFEF35D00C310A2 /* SongbookDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongbookDB.m; sourceTree = "<group>"; };
+		3FE004670EFEF51300C310A2 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		3FE004CD0EFF248000C310A2 /* AddSongController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSongController.h; sourceTree = "<group>"; };
+		3FE004CE0EFF248000C310A2 /* AddSongController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSongController.m; sourceTree = "<group>"; };
+		3FEE147F0EFECE5100BFD74D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3FEE14800EFECE5100BFD74D /* Songbook_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Songbook_Prefix.pch; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
+				3FE004680EFEF51300C310A2 /* libsqlite3.dylib in Frameworks */,
+				3F1678B40F0364D700BC1EF1 /* libicucore.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3FEE14880EFECE5A00BFD74D /* Boilerplate */,
+				3F16789F0F03623F00BC1EF1 /* RegexKit Lite */,
+				3FE004100EFEE55100C310A2 /* UI */,
+				1D3623240D0F684500981E51 /* SongbookAppDelegate.h */,
+				1D3623250D0F684500981E51 /* SongbookAppDelegate.m */,
+				3FE004630EFEF35D00C310A2 /* SongbookDB.h */,
+				3FE004640EFEF35D00C310A2 /* SongbookDB.m */,
+				3F686F0F0F01D27E00FDA08A /* PRODownloader.h */,
+				3F686F100F01D27E00FDA08A /* PRODownloader.m */,
+				3F68706D0F02077400FDA08A /* PRO2HTML.h */,
+				3F68706E0F02077400FDA08A /* PRO2HTML.m */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* Songbook.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3FAAC2DC0F066A53007B7A95 /* Default.png */,
+				3FAAC2580F065172007B7A95 /* Info.html */,
+				3F5C57C90F058DFF001B87F6 /* a.png */,
+				3F5C57AF0F058AF1001B87F6 /* n.png */,
+				3F5C57CE0F058EA5001B87F6 /* p.png */,
+				3FAAC2930F065888007B7A95 /* i.png */,
+				3F5C57930F05836F001B87F6 /* Icon.png */,
+				3F762A010F03D7C800CF9874 /* Entitlements.plist */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+				3FAB13EE0EFF41300026DED5 /* EditSong.xib */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
+				3FE004670EFEF51300C310A2 /* libsqlite3.dylib */,
+				3F1678B30F0364D700BC1EF1 /* libicucore.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F16789F0F03623F00BC1EF1 /* RegexKit Lite */ = {
+			isa = PBXGroup;
+			children = (
+				3F1678A50F03624C00BC1EF1 /* RegexKitLite.m */,
+				3F1678A60F03624C00BC1EF1 /* RegexKitLite.h */,
+			);
+			name = "RegexKit Lite";
+			sourceTree = "<group>";
+		};
+		3FE004100EFEE55100C310A2 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3FE004510EFEEFBD00C310A2 /* MainTabController.h */,
+				3FE004500EFEEFBD00C310A2 /* MainTabController.m */,
+				3FE004180EFEE7E800C310A2 /* ArtistsListController.h */,
+				3FE004190EFEE7E800C310A2 /* ArtistsListController.m */,
+				3FAB15220EFF6A470026DED5 /* SongsListController.h */,
+				3FAB15230EFF6A470026DED5 /* SongsListController.m */,
+				3FE004CD0EFF248000C310A2 /* AddSongController.h */,
+				3FE004CE0EFF248000C310A2 /* AddSongController.m */,
+				3FAB13EB0EFF40F60026DED5 /* EditSongController.h */,
+				3FAB13EC0EFF40F60026DED5 /* EditSongController.m */,
+				3F6870200F02012500FDA08A /* SongViewController.h */,
+				3F6870210F02012500FDA08A /* SongViewController.m */,
+				3FAAC25B0F0651BE007B7A95 /* InfoViewController.h */,
+				3FAAC25C0F0651BE007B7A95 /* InfoViewController.m */,
+				3FC2FD470F4DC74C00C6FDB5 /* RotatingTabBarController.h */,
+				3FC2FD480F4DC74C00C6FDB5 /* RotatingTabBarController.m */,
+			);
+			name = "UI";
+			sourceTree = "<group>";
+		};
+		3FEE14880EFECE5A00BFD74D /* Boilerplate */ = {
+			isa = PBXGroup;
+			children = (
+				3FEE14800EFECE5100BFD74D /* Songbook_Prefix.pch */,
+				3FEE147F0EFECE5100BFD74D /* main.m */,
+			);
+			name = Boilerplate;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* Songbook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Songbook" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Songbook;
+			productName = Songbook;
+			productReference = 1D6058910D05DD3D006BFB54 /* Songbook.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Songbook" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* Songbook */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FAB13EF0EFF41300026DED5 /* EditSong.xib in Resources */,
+				3F762A020F03D7C800CF9874 /* Entitlements.plist in Resources */,
+				3F5C57940F05836F001B87F6 /* Icon.png in Resources */,
+				3F5C57B00F058AF1001B87F6 /* n.png in Resources */,
+				3F5C57CA0F058DFF001B87F6 /* a.png in Resources */,
+				3F5C57CF0F058EA5001B87F6 /* p.png in Resources */,
+				3FAAC2590F065172007B7A95 /* Info.html in Resources */,
+				3FAAC2940F065888007B7A95 /* i.png in Resources */,
+				3FAAC2DD0F066A53007B7A95 /* Default.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D3623260D0F684500981E51 /* SongbookAppDelegate.m in Sources */,
+				3FEE14810EFECE5100BFD74D /* main.m in Sources */,
+				3FE0041A0EFEE7E800C310A2 /* ArtistsListController.m in Sources */,
+				3FE004520EFEEFBD00C310A2 /* MainTabController.m in Sources */,
+				3FE004650EFEF35D00C310A2 /* SongbookDB.m in Sources */,
+				3FE004CF0EFF248000C310A2 /* AddSongController.m in Sources */,
+				3FAB13ED0EFF40F60026DED5 /* EditSongController.m in Sources */,
+				3FAB15240EFF6A470026DED5 /* SongsListController.m in Sources */,
+				3F686F110F01D27E00FDA08A /* PRODownloader.m in Sources */,
+				3F6870220F02012500FDA08A /* SongViewController.m in Sources */,
+				3F68706F0F02077400FDA08A /* PRO2HTML.m in Sources */,
+				3F1678A70F03624C00BC1EF1 /* RegexKitLite.m in Sources */,
+				3FAAC25D0F0651BE007B7A95 /* InfoViewController.m in Sources */,
+				3FC2FD490F4DC74C00C6FDB5 /* RotatingTabBarController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Sources/Songbook_Prefix.pch;
+				INFOPLIST_FILE = Resources/Info.plist;
+				PRODUCT_NAME = Songbook;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Sources/Songbook_Prefix.pch;
+				INFOPLIST_FILE = Resources/Info.plist;
+				PRODUCT_NAME = Songbook;
+			};
+			name = Release;
+		};
+		3F7629FE0F03D7A100CF9874 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_ENTITLEMENTS = Resources/Entitlements.plist;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Antonio Malara";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Resources/Info.plist;
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E98CAB05-B6E7-484D-8F2F-9E701C0394DE";
+				SDKROOT = iphoneos2.0;
+			};
+			name = "Ad Hoc";
+		};
+		3F7629FF0F03D7A100CF9874 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Sources/Songbook_Prefix.pch;
+				PRODUCT_NAME = Songbook;
+			};
+			name = "Ad Hoc";
+		};
+		3FAAC3260F08369B007B7A95 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_ENTITLEMENTS = Resources/Entitlements.plist;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Antonio Malara";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Resources/Info.plist;
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "791AA84E-4B33-4A5B-B88F-AA25C2BEEE74";
+				SDKROOT = iphoneos2.0;
+			};
+			name = Distribution;
+		};
+		3FAAC3270F08369B007B7A95 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Sources/Songbook_Prefix.pch;
+				PRODUCT_NAME = Songbook;
+			};
+			name = Distribution;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Antonio Malara";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F5B535AA-6722-4E4C-B02B-CE5A0598BDF8";
+				SDKROOT = iphoneos2.0;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Antonio Malara";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F5B535AA-6722-4E4C-B02B-CE5A0598BDF8";
+				SDKROOT = iphoneos2.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Songbook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+				3F7629FF0F03D7A100CF9874 /* Ad Hoc */,
+				3FAAC3270F08369B007B7A95 /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Songbook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+				3F7629FE0F03D7A100CF9874 /* Ad Hoc */,
+				3FAAC3260F08369B007B7A95 /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
