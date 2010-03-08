@@ -8,13 +8,17 @@
 
 #import "SelectableTileImageLayer.h"
 #import "MapViewController.h"
+#import "TileManager.h"
+#import "RMTileImage.h"
 
 @interface SelectableTileImageLayer()
 
 @property(readonly) CALayer * insideLayer;
 
-@end
+- (void)tintR:(float)r G:(float)g B:(float)b;
+- (void)colorize;
 
+@end
 
 @implementation SelectableTileImageLayer
 
@@ -31,6 +35,11 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(selectingTilesEnd)
 												 name:SelectingTilesToDownloadEnd
+											   object:nil];
+
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(colorize)
+												 name:TileManagerSelectionDidChange
 											   object:nil];
 	
 	return self;
@@ -77,7 +86,18 @@
 
 - (void)layoutSublayers;
 {
+	if ([[TileManager sharedTileManager] isSelectingTiles])
+		[self colorize];
+	
 	insideLayer.frame = self.bounds;
+}
+
+- (void)colorize;
+{
+	if ([[TileManager sharedTileManager] tileIsSelected:self.tileImage.tile])
+		[self tintR:0 G:1 B:0];
+	else
+		[self tintR:1 G:1 B:1];
 }
 
 - (void)selectingTilesBegin;
