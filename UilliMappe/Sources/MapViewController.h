@@ -9,14 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "RMMapView.h"
 
-extern NSString * SelectingTilesToDownloadBegin;
-extern NSString * SelectingTilesToDownloadEnd;
-
 @interface MapViewController : UIViewController <RMMapViewDelegate>
 {
 	RMMapView       * mapView;
 	UIBarButtonItem * selectTilesButton;
-	Boolean           selectingTiles;
 }
 
 @property(nonatomic, retain) IBOutlet RMMapView       * mapView;

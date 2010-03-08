@@ -10,9 +10,7 @@
 #import "RMTileImage.h"
 #import "SelectableTileImageLayer.h"
 #import "RMCoreAnimationRenderer.h"
-
-NSString * SelectingTilesToDownloadBegin = @"SelectingTilesToDownloadBegin";
-NSString * SelectingTilesToDownloadEnd   = @"SelectingTilesToDownloadEnd";
+#import "TileManager.h"
 
 @implementation MapViewController
 
@@ -36,7 +34,17 @@ NSString * SelectingTilesToDownloadEnd   = @"SelectingTilesToDownloadEnd";
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(tileRemovedInScreen:)
 												 name:RMCARendererTileRemoved
-											   object:nil];	
+											   object:nil];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(selectingTilesBegin)
+												 name:SelectingTilesToDownloadBegin
+											   object:nil];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(selectingTilesEnd)
+												 name:SelectingTilesToDownloadEnd
+											   object:nil];
 }
 
 - (void)dealloc;
@@ -65,45 +73,49 @@ NSString * SelectingTilesToDownloadEnd   = @"SelectingTilesToDownloadEnd";
 
 - (void)selectTilesAction;
 {
-	if (selectingTiles == NO)
-	{
-		selectingTiles     = YES;
-		mapView.enableZoom = NO;
-		selectTilesButton.title = @"Done";
-		[[NSNotificationCenter defaultCenter] postNotificationName:SelectingTilesToDownloadBegin
-															object:nil];
-	} else {
-		selectingTiles     = NO;
-		mapView.enableZoom = YES;
-		selectTilesButton.title = @"DL Tiles";
-		[[NSNotificationCenter defaultCenter] postNotificationName:SelectingTilesToDownloadEnd
-															object:nil];
-	}
+	[[TileManager sharedTileManager] toggleSelectingTiles];
 }
 
 - (void)mapView:(RMMapView *)map didTapOnTileImage:(RMTileImage *)tm;
 {
-	if (selectingTiles == NO)
+	if ([[TileManager sharedTileManager] isSelectingTiles] == NO)
 		return;
 	
 	if ([tm.layer isKindOfClass:[SelectableTileImageLayer class]] == NO)
 		return;
 	
-	SelectableTileImageLayer * theLayer = (SelectableTileImageLayer *) tm.layer;
-	[theLayer tintGreen];
+	[[TileManager sharedTileManager] toggleSelectionForTile:tm.tile];
+}
+
+- (void)selectingTilesBegin;
+{
+	mapView.enableZoom = NO;
+	selectTilesButton.title = @"Done";
+}
+
+- (void)selectingTilesEnd;
+{
+	mapView.enableZoom = YES;
+	selectTilesButton.title = @"DL Tiles";
 }
 
 #pragma mark New Tiles Management
-
 - (void)tileAddedInScreen:(NSNotification *)noti;
 {
-	if (selectingTiles == NO)
+	/*
+
+	if ([[TileManager sharedTileManager] isSelectingTiles] == NO)
 		return;
 	
 	RMTileImage * tileImage = [[noti userInfo] objectForKey:RMCARendererTileImage];
 	
 	SelectableTileImageLayer * theLayer = (SelectableTileImageLayer *) tileImage.layer;
-	[theLayer tintR:1 G:1 B:1];
+	
+//	if ([[TileManager sharedTileManager] tileIsSelected:tileImage.tile] == NO)
+//		[theLayer tintR:1 G:1 B:1];
+//	else
+//		[theLayer tintR:0 G:1 B:0];
+	 */
 }
 
 - (void)tileRemovedInScreen:(NSNotification *)noti;
