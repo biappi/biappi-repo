@@ -33,6 +33,10 @@
 #import "RMTileImage.h"
 #import "RMTileImageSet.h"
 
+NSString * RMCARendererTileAdded   = @"RMCARendererTileAdded";
+NSString * RMCARendererTileRemoved = @"RMCARendererTileRemoved";
+NSString * RMCARendererTileImage   = @"RMCARendererTileImage";
+
 @implementation RMCoreAnimationRenderer
 
 - (id) initWithContent: (RMMapContents *)_contents
@@ -99,6 +103,11 @@
 	
 //	RMLog(@"tileAdded");
 	
+	[[NSNotificationCenter defaultCenter] postNotificationName:RMCARendererTileAdded
+														object:nil
+													  userInfo:[NSDictionary dictionaryWithObject:image
+																						   forKey:RMCARendererTileImage]];
+	
 	[layer addSublayer:[image layer]];
 }
 
@@ -108,6 +117,12 @@
 	
 //	RMLog(@"tileRemoved: %d %d %d at %f %f %f %f", tile.x, tile.y, tile.zoom, image.screenLocation.origin.x, image.screenLocation.origin.y,
 //		  image.screenLocation.size.width, image.screenLocation.size.height);
+
+	[[NSNotificationCenter defaultCenter] postNotificationName:RMCARendererTileRemoved
+														object:nil
+													  userInfo:[NSDictionary dictionaryWithObject:image
+																						   forKey:RMCARendererTileImage]];
+	
 	
 	[[image layer] removeFromSuperlayer];
 }

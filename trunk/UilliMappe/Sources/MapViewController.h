@@ -24,4 +24,7 @@ extern NSString * SelectingTilesToDownloadEnd;
 
 - (IBAction)selectTilesAction;
 
+- (void)savePositionToUserDefaults;
+- (void)loadPositionFromUserDefaults;
+
 @end

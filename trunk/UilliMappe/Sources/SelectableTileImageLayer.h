@@ -14,5 +14,6 @@
 }
 
 - (void)tintGreen;
+- (void)tintR:(float)r G:(float)g B:(float)b;
 
 @end
