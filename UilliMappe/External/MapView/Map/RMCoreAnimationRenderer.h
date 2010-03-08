@@ -31,6 +31,10 @@
 
 @class RMLayeredTileLoader;
 
+extern NSString * RMCARendererTileAdded;
+extern NSString * RMCARendererTileRemoved;
+extern NSString * RMCARendererTileImage;
+
 @interface RMCoreAnimationRenderer : RMMapRenderer {
 	CALayer *layer;
 }
