@@ -11,6 +11,8 @@
 #import "TileManager.h"
 #import "RMTileImage.h"
 
+NSString * SelectableTileImageLayerDisplayTileInfoChanged = @"SelectableTileImageLayerDisplayTileInfoChanged";
+
 @interface SelectableTileImageLayer()
 
 @property(readonly) CALayer * insideLayer;

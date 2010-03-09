@@ -12,6 +12,9 @@
 
 #define LRU_CACHE_SIZE 30
 
+#define MIN_NUM_LEVELS_TO_DL 2
+#define MAX_NUM_LEVELS_TO_DL 5
+
 NSString * TileManagerSelectionDidChange = @"TileManagerSelectionDidChange";
 NSString * SelectingTilesToDownloadBegin = @"SelectingTilesToDownloadBegin";
 NSString * SelectingTilesToDownloadEnd   = @"SelectingTilesToDownloadEnd";
@@ -42,15 +45,63 @@ static NSUInteger NSArrayIndexOfObject(NSArray * array, id object)
 	return NSNotFound;
 }
 
+static RMTile RMTileCreate(int x, int y, int z)
+{
+	RMTile t;
+	t.x = x;
+	t.y = y;
+	t.zoom = z;
+	return t;
+}
+
+static void InsertSubTilesIntoSet(NSMutableSet * set, RMTile tile, int levels, int maxLevel)
+{
+	NSString * newTile = TileToNSString(tile);
+	NSString * tileString    = [set member:newTile];
+	
+	if (tileString == nil)
+	{
+		[set addObject:newTile];
+		NSLog(@"Adding %@", newTile);
+	} else {
+		NSLog(@"NOT    %@", newTile);
+	}
+
+	levels--;
+	
+	if (levels == 1)
+		return;
+	
+	if (tile.zoom == maxLevel)
+		return;
+	
+	int x2 = tile.x * 2;
+	int y2 = tile.y * 2;
+	int z  = tile.zoom + 1;
+	
+	RMTile NW = RMTileCreate(x2    , y2    , z);
+	RMTile NE = RMTileCreate(x2 + 1, y2    , z);
+	RMTile SW = RMTileCreate(x2    , y2 + 1, z);
+	RMTile SE = RMTileCreate(x2 + 1, y2 + 1, z);
+	
+	InsertSubTilesIntoSet(set, NW, levels, maxLevel);
+	InsertSubTilesIntoSet(set, NE, levels, maxLevel);
+	InsertSubTilesIntoSet(set, SW, levels, maxLevel);
+	InsertSubTilesIntoSet(set, SE, levels, maxLevel);
+}
+
 @interface TileManager ()
 
 - (RMTileImage *)fetchFromCache:(RMTile)tile;
 - (void)insertInCache:(RMTileImage *)tileImage;
 
+- (int)countNodesForTile:(RMTile)tile;
+
 @end
 
-
 @implementation TileManager
+
+@synthesize numberOfLevelsToSelect;
 
 + (TileManager *)sharedTileManager;
 {
@@ -66,6 +117,8 @@ static NSUInteger NSArrayIndexOfObject(NSArray * array, id object)
 {
 	if ((self = [super init]) == nil)
 		return nil;
+	
+	numberOfLevelsToSelect = 3;
 	
 	selectedTiles = [[NSMutableSet alloc] init];
 	tileSource    = [[RMOpenStreetMapSource alloc] init];
@@ -100,42 +153,6 @@ static NSUInteger NSArrayIndexOfObject(NSArray * array, id object)
 	return image;
 }
 
-#pragma mark Tile Selection Management
-
-- (void)toggleSelectingTiles;
-{
-	selectingTiles = !selectingTiles;
-	
-	NSString * notification = (selectingTiles == YES) ? SelectingTilesToDownloadBegin : SelectingTilesToDownloadEnd;
-	
-	[[NSNotificationCenter defaultCenter] postNotificationName:notification
-														object:nil];	
-}
-
-- (BOOL)isSelectingTiles;
-{
-	return selectingTiles;
-}
-
-- (void)toggleSelectionForTile:(RMTile)theTile;
-{
-	NSString * newTile = TileToNSString(theTile);
-	NSString * tile    = [selectedTiles member:newTile];
-	
-	if (tile != nil)
-		[selectedTiles removeObject:tile];
-	else
-		[selectedTiles addObject:newTile];
-	
-	[[NSNotificationCenter defaultCenter] postNotificationName:TileManagerSelectionDidChange
-														object:nil];
-}
-
-- (BOOL)tileIsSelected:(RMTile)theTile;
-{
-	return ([selectedTiles member:TileToNSString(theTile)] != nil);
-}
-
 #pragma mark LRU Cache
 
 - (RMTileImage *)fetchFromCache:(RMTile)tile;
@@ -163,6 +180,77 @@ static NSUInteger NSArrayIndexOfObject(NSArray * array, id object)
 	
 	[lruCache setObject:tileImage forKey:tileString];
 	[lruCacheOrder insertObject:tileString atIndex:0];
+}
+
+#pragma mark Tile Selection Management
+
+- (void)toggleSelectingTiles;
+{
+	selectingTiles = !selectingTiles;
+	
+	NSString * notification = (selectingTiles == YES) ? SelectingTilesToDownloadBegin : SelectingTilesToDownloadEnd;
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:notification
+														object:nil];
+}
+
+- (BOOL)isSelectingTiles;
+{
+	return selectingTiles;
+}
+
+- (void)toggleSelectionForTile:(RMTile)theTile;
+{
+	NSString * newTile = TileToNSString(theTile);
+	NSString * tile    = [selectedTiles member:newTile];
+	
+	if (tile != nil)
+		[selectedTiles removeObject:tile];
+	else
+		InsertSubTilesIntoSet(selectedTiles, theTile, numberOfLevelsToSelect, [tileSource maxZoom]);
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:TileManagerSelectionDidChange
+														object:nil];
+}
+
+- (BOOL)tileIsSelected:(RMTile)theTile;
+{
+	return ([selectedTiles member:TileToNSString(theTile)] != nil);
+}
+
+- (int)countNodesForTile:(RMTile)tile;
+{
+	NSUInteger thePow = 4;
+	NSUInteger maxzoom = [tileSource maxZoom];
+	
+	for (int i = 1; i < (maxzoom - tile.zoom + 1); i ++)
+	{
+		thePow *= 4;
+	}
+	
+	return (thePow  - 1) / 3;
+}
+
+- (void)increaseNumberOfLevelsToSelect;
+{
+	numberOfLevelsToSelect = MIN(numberOfLevelsToSelect + 1, MAX_NUM_LEVELS_TO_DL);
+}
+
+- (void)decreaseNumberOfLevelsToSelect;
+{
+	numberOfLevelsToSelect = MAX(numberOfLevelsToSelect - 1, MIN_NUM_LEVELS_TO_DL);
+}
+
+- (NSUInteger)numberOfTilesSelected;
+{
+	return [selectedTiles count];
+}
+
+#pragma mark Tile Download
+
+- (void)downloadTilesFrom:(RMTile)tile;
+{
+	
 }
 
 #pragma mark RMTileSource Proxy

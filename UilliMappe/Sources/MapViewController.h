@@ -13,12 +13,25 @@
 {
 	RMMapView       * mapView;
 	UIBarButtonItem * selectTilesButton;
+	UIView          * statusView;
+	UILabel         * statusLabel;
+	
+	UIToolbar       * downloadToolbar;
+	UIBarButtonItem * numberOfLevels;
 }
 
 @property(nonatomic, retain) IBOutlet RMMapView       * mapView;
-@property(nonatomic, retain) IBOutlet UIBarButtonItem * selectTilesButton;;
+@property(nonatomic, retain) IBOutlet UIBarButtonItem * selectTilesButton;
+@property(nonatomic, retain) IBOutlet UIView          * statusView;
+@property(nonatomic, retain) IBOutlet UILabel         * statusLabel;
+@property(nonatomic, retain) IBOutlet UIToolbar       * downloadToolbar;
+@property(nonatomic, retain) IBOutlet UIBarButtonItem * numberOfLevels;
 
 - (IBAction)selectTilesAction;
+
+- (IBAction)doneDownload;
+- (IBAction)addLevel;
+- (IBAction)subtractLevel;
 
 - (void)savePositionToUserDefaults;
 - (void)loadPositionFromUserDefaults;

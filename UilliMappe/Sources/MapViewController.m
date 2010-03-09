@@ -12,10 +12,21 @@
 #import "RMCoreAnimationRenderer.h"
 #import "TileManager.h"
 
+@interface MapViewController ()
+
+- (void)updateLevelsLabel;
+
+@end
+
+
 @implementation MapViewController
 
 @synthesize mapView;
 @synthesize selectTilesButton;
+@synthesize statusView;
+@synthesize statusLabel;
+@synthesize downloadToolbar;
+@synthesize numberOfLevels;
 
 #pragma mark Housekeeping
 
@@ -27,16 +38,6 @@
 - (void)awakeFromNib;
 {
 	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(tileAddedInScreen:)
-												 name:RMCARendererTileAdded
-											   object:nil];
-
-	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(tileRemovedInScreen:)
-												 name:RMCARendererTileRemoved
-											   object:nil];
-	
-	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(selectingTilesBegin)
 												 name:SelectingTilesToDownloadBegin
 											   object:nil];
@@ -45,6 +46,11 @@
 											 selector:@selector(selectingTilesEnd)
 												 name:SelectingTilesToDownloadEnd
 											   object:nil];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(updateLevelsLabel)
+												 name:TileManagerSelectionDidChange
+											   object:nil];	
 }
 
 - (void)dealloc;
@@ -62,6 +68,14 @@
 	[mapView.contents setTileSourceNoCache:[TileManager sharedTileManager]];
 	
 	[self loadPositionFromUserDefaults];
+}
+
+- (void)viewDidUnload;
+{
+	self.mapView = nil;
+	self.selectTilesButton = nil;
+	self.statusView = nil;
+	self.statusLabel = nil;
 }
 
 - (void)viewWillDisappear:(BOOL)animated;
@@ -89,38 +103,37 @@
 
 - (void)selectingTilesBegin;
 {
-	mapView.enableZoom = NO;
-	selectTilesButton.title = @"Done";
+	downloadToolbar.hidden = NO;
+	[self updateLevelsLabel];
 }
 
 - (void)selectingTilesEnd;
 {
-	mapView.enableZoom = YES;
-	selectTilesButton.title = @"DL Tiles";
+	downloadToolbar.hidden = YES;
 }
 
-#pragma mark New Tiles Management
-- (void)tileAddedInScreen:(NSNotification *)noti;
+- (void)updateLevelsLabel;
 {
-	/*
-
-	if ([[TileManager sharedTileManager] isSelectingTiles] == NO)
-		return;
-	
-	RMTileImage * tileImage = [[noti userInfo] objectForKey:RMCARendererTileImage];
-	
-	SelectableTileImageLayer * theLayer = (SelectableTileImageLayer *) tileImage.layer;
-	
-//	if ([[TileManager sharedTileManager] tileIsSelected:tileImage.tile] == NO)
-//		[theLayer tintR:1 G:1 B:1];
-//	else
-//		[theLayer tintR:0 G:1 B:0];
-	 */
+	numberOfLevels.title = [NSString stringWithFormat:@"%d Levels %d Tiles",
+							[TileManager sharedTileManager].numberOfLevelsToSelect,
+							[TileManager sharedTileManager].numberOfTilesSelected];
 }
 
-- (void)tileRemovedInScreen:(NSNotification *)noti;
+- (IBAction)doneDownload;
 {
-	
+	[[TileManager sharedTileManager] toggleSelectingTiles];
+}
+
+- (IBAction)addLevel;
+{
+	[[TileManager sharedTileManager] increaseNumberOfLevelsToSelect];
+	[self updateLevelsLabel];
+}
+
+- (IBAction)subtractLevel;
+{
+	[[TileManager sharedTileManager] decreaseNumberOfLevelsToSelect];
+	[self updateLevelsLabel];
 }
 
 #pragma mark User Defaults

@@ -7,10 +7,11 @@
 //
 
 #import "RMTileImageLayer.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface SelectableTileImageLayer : RMTileImageLayer
 {
-	CALayer * insideLayer;
+	CALayer     * insideLayer;
 }
 
 @end
