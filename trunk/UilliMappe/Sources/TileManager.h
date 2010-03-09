@@ -23,7 +23,14 @@ extern NSString * SelectingTilesToDownloadEnd;
 	
 	NSMutableDictionary    * lruCache;
 	NSMutableArray         * lruCacheOrder;
+	
+	NSMutableSet           * tilesToDownload;
+	
+	NSUInteger               numberOfLevelsToSelect;
 }
+
+@property(nonatomic, readonly) NSUInteger numberOfLevelsToSelect;
+@property(nonatomic, readonly) NSUInteger numberOfTilesSelected;
 
 + (TileManager *)sharedTileManager;
 
@@ -32,5 +39,9 @@ extern NSString * SelectingTilesToDownloadEnd;
 
 - (void)toggleSelectionForTile:(RMTile)theTile;
 - (BOOL)tileIsSelected:(RMTile)theTile;
+
+- (void)increaseNumberOfLevelsToSelect;
+- (void)decreaseNumberOfLevelsToSelect;
+- (void)downloadTilesFrom:(RMTile)tile;
 
 @end
