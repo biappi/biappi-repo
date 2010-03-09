@@ -171,6 +171,8 @@ enum {
 
 - (void)setFrame:(CGRect)frame;
 
+- (void)setTileSourceNoCache:(id<RMTileSource>)ts;
+
 - (void)handleMemoryWarningNotification:(NSNotification *)notification;
 - (void)didReceiveMemoryWarning;
 
