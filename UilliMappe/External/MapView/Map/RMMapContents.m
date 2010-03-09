@@ -595,6 +595,25 @@
 
 #pragma mark Properties
 
+- (void)setTileSourceNoCache:(id<RMTileSource>)ts;
+{
+	if (ts == tileSource)
+		return;
+	
+	[tileSource release];
+	[projection release];
+	[mercatorToTileProjection release];
+	
+	tileSource = [ts retain];
+	projection = [ts.projection retain];
+	mercatorToTileProjection = [ts.mercatorToTileProjection retain];
+	
+	[imagesOnScreen setTileSource:ts];
+	
+	[tileLoader reset];
+	[tileLoader reload];
+}
+
 - (void) setTileSource: (id<RMTileSource>)newTileSource
 {
 	if (tileSource == newTileSource)

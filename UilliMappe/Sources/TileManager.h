@@ -8,15 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import "RMTile.h"
+#import "RMTileSource.h"
 
 extern NSString * TileManagerSelectionDidChange;
 extern NSString * SelectingTilesToDownloadBegin;
 extern NSString * SelectingTilesToDownloadEnd;
 
-@interface TileManager : NSObject
+@interface TileManager : NSObject <RMTileSource>
 {
-	BOOL           selectingTiles;
-	NSMutableSet * selectedTiles;
+	NSObject<RMTileSource> * tileSource;
+	
+	BOOL                     selectingTiles;
+	NSMutableSet           * selectedTiles;
+	
+	NSMutableDictionary    * lruCache;
+	NSMutableArray         * lruCacheOrder;
 }
 
 + (TileManager *)sharedTileManager;

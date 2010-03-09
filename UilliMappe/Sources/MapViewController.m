@@ -59,13 +59,13 @@
 	
 	[mapView setDelegate:self];
 	[mapView setBackgroundColor:[UIColor grayColor]];
+	[mapView.contents setTileSourceNoCache:[TileManager sharedTileManager]];
 	
 	[self loadPositionFromUserDefaults];
 }
 
 - (void)viewWillDisappear:(BOOL)animated;
 {
-	animated;	
 	[self savePositionToUserDefaults];
 }
 
