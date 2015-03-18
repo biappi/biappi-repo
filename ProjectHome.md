@@ -1,0 +1,1 @@
+This is my personal repository in which i'll commit my little pieces of code that do not have the ambition to become applications.
