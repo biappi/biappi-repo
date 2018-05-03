@@ -48,6 +48,7 @@
 	
 	[UIApplication sharedApplication].statusBarHidden = YES;
 	window.frame = [UIScreen mainScreen].bounds;
+	window.rootViewController = viewController;
 	[window makeKeyAndVisible];
 		
 	[self performSelector:@selector(startItAll:) withObject:nil afterDelay:0];
@@ -68,24 +69,31 @@
 
 - (void)setEnterPressed:(BOOL)enter;
 {
+	NSLog(@"%s", __PRETTY_FUNCTION__);
 	stub->_pi.enter = enter;
 }
 
 - (void)setEscapePressed:(BOOL)escape;
 {
+	NSLog(@"%s", __PRETTY_FUNCTION__);
 	stub->_pi.escape = escape;
 }
 
 - (void)setSpacePressed:(BOOL)space;
 {
+	NSLog(@"%s", __PRETTY_FUNCTION__);
 	stub->_pi.space = space;
 }
 
-- (void) setShiftPressed:(BOOL) shift {
+- (void)setShiftPressed:(BOOL)shift
+{
+	NSLog(@"%s", __PRETTY_FUNCTION__);
 	stub->_pi.shift = shift;
 }
 
-- (void) setBackspacePressed:(BOOL) backspace {
+- (void)setBackspacePressed:(BOOL)backspace
+{
+	NSLog(@"%s", __PRETTY_FUNCTION__);
 	stub->_pi.backspace = backspace;
 }
 

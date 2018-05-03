@@ -26,6 +26,13 @@
     return self;
 }
 
+
+- (void)awakeFromNib {
+	[super awakeFromNib];
+	self.userInteractionEnabled = YES;
+	self.multipleTouchEnabled = NO;
+}
+
 - (void) _updateDelegateWithTouchLocation:(CGPoint) p {
 	CGRect bounds = self.bounds;
 	BOOL up, down, left, right;

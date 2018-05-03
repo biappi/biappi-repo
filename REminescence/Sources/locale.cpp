@@ -17,27 +17,27 @@
  */
 
 #include "locale.h"
-
+#include "resource.h"
 
 Locale::Locale(Version ver)
 	: _ver(ver) {
 
 	switch (_ver) {
 	case VER_FR:
-		_stringsTable = _stringsTableFR;
-		_textsTable = _textsTableFR;
+			_stringsTable = LocaleData::_stringsTableFR;
+		_textsTable = LocaleData::_textsTableFR;
 		break;
 	case VER_EN:
-		_stringsTable = _stringsTableEN;
-		_textsTable = _textsTableEN;
+		_stringsTable = LocaleData::_stringsTableEN;
+		_textsTable = LocaleData::_textsTableEN;
 		break;
 	case VER_DE:
-		_stringsTable = _stringsTableDE;
-		_textsTable = _textsTableDE;
+		_stringsTable = LocaleData::_stringsTableDE;
+		_textsTable = LocaleData::_textsTableDE;
 		break;
 	case VER_SP:
-		_stringsTable = _stringsTableSP;
-		_textsTable = _textsTableSP;
+		_stringsTable = LocaleData::_stringsTableSP;
+		_textsTable = LocaleData::_textsTableSP;
 		break;
 	}
 
